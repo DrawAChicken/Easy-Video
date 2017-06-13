@@ -1,44 +1,54 @@
 <template>
     <div class="box">
-        <div class="bg" :style="stylePic"></div>
+        <div class="bg" :style="{background: `url(${pic})`}"></div>
         <div class="board">
-                         'http://jiexi.fuquanjie.cn/playm3u8/?type=pptvyun&vid=1b66cca4fed0945baeddd80de4bc43ac'
-            <webview src="http://jiexi.fuquanjie.cn/playm3u8/?type=pptvyun&vid=bf8a39b7e42fae8f52ac1e5a2d44fb40" useragent="Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1" plugins></webview>
+            <!--<webview id="ad" src="http://jiexi.fuquanjie.cn/playm3u8/?type=pptvyun&vid=bf8a39b7e42fae8f52ac1e5a2d44fb40" useragent="Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1" plugins></webview>-->
             <div class="pic">
-                <img :src="picBase" alt="">
+                <img :src="pic" alt="">
                 <em class="play-icon" @click="goPlay()"></em>
-                <ul class="blues" v-if="info.juji" >
+                <!--<ul class="blues" v-if="info.juji" >
                     <li v-for="item in info.juji">{{item}}</li>
-                </ul>
+                </ul>-->
             </div>
             <div class="video-info">
-                <p class="name">{{info.name}} <span class="score">评分: {{info.score}}</span></p>
+                <p class="name">{{info.name}}</p>
+                <p class="actors">
+                    <span class="left">导演 :</span>
+                    <span v-for="item in info.director" class="actor">{{item}}</span>
+                </p>
+                <p class="actors">
+                    <span class="left">类型 :</span>
+                    <span v-for="item in info.type" class="actor">{{item}}</span>
+                </p>
                 <p class="actors">
                     <span class="left">演员 :</span>
-                    <span v-for="item in info.actors" class="actor">{{item}}</span>
+                    <span v-for="item in info.actors" class="actor">{{item}}、</span>
                 </p>
-                <p class="length">
-                    <span class="left">时长 :</span>
-                    <span>{{info.length}}</span>
+                <p class="actors">
+                    <span class="left">地区 :</span>
+                    <span class="actor">{{info.area}}</span>
                 </p>
                 <p class="year">
-                    <span class="left">上映时间 :</span>
+                    <span class="left">更新时间 :</span>
                     <span>{{info.year}}</span>
                 </p>
-                <p class="dsp">{{info.dsp}}</p>                
-                <!--<p class="director">{{info.director}}</p>
-                <p class="area">{{info.area}}</p>-->
+                <p class="actors">
+                    <span class="left">简介 :</span>
+                    <span class="actor">{{info.about}}</span>
+                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import pic from '../assets/ceshi.jpg';
+
 export default {
     data() {
         return {
             info: {},
-            picBase: ''
+            pic
         };
     },
     methods: {
@@ -46,19 +56,35 @@ export default {
             console.log(1);
         }
     },
-    computed: {
-        stylePic() {
-            return `background-image: url('${this.picBase}')`
-        }
-    },
     created() {
-        this.$remoteApi.details(this.$route.query.url, data => {
+        this.$remoteApi.details(`http://z.qukansha.com${this.$route.query.url}`, data => {
+			data = JSON.parse(data)
+            if (!data.type.length) {
+                data.type = ['未知']
+            }
+            if (!data.year.indexOf('更新')) {
+                data.year = data.year.split('：')[1]
+            }
             this.$set(this, 'info', data);
-			console.log(this.info);
-            this.$remoteApi.getImg(data.pic, item => {
-                this.$set(this, 'picBase', item)
-            })
 		})
+    },
+    mounted() {
+        // const q = document.getElementById("ad");
+        // q.addEventListener('did-get-response-details', function (e) {
+        //     // webview.insertText('text');
+        //     // q.openDevTools()
+        //     // console.log(e);
+        //     // const requestId = webview.findInPage('video')
+        //     // console.log(requestId)
+        //     // webview.contentWindow.document.getElementById("myVideo");
+        //     // console.log(webview.contentWindow)
+        // });
+        // webview.addEventListener('found-in-page', (e) => {
+        //     console.log(e)            
+        //     console.log(e.target.dataset.constructor('li'))
+        //     webview.stopFindInPage('keepSelection')
+        // })
+        
     }
 };
 </script>
@@ -88,11 +114,13 @@ export default {
             left: 0;
             .pic{
                 width: 35%;
+                height: 80%;
                 position: absolute;
                 top: 10%;
                 left: 10%;
                 img{
                     width: 100%;
+                    height: 100%;
                 }
                 .play-icon{
                     position: absolute;
@@ -110,36 +138,13 @@ export default {
                     background: url('../assets/play.png');      
                     background-size: 100%;
                 }
-                .blues{
-                    padding: 5px 0;
-                    overflow: auto;
-                    height: 100px;
-                    li{
-                        margin: 2px 2px;
-                        width: 40px;
-                        height: 20px;
-                        text-align: center;
-                        line-height: 20px;
-                        border-bottom: 1px solid #333;
-                        color: #333;
-                        float: left;
-                        font-size: 12px;
-                        &:hover{
-                            border-bottom: 1px solid #ff722c;
-                            color: #ff722c;
-                        }
-                    }
-                }
                 &:hover .play-icon{
                     opacity: 1;
                 }
             }
-            
-            
             .video-info{
                 padding: 10px 0;
                 width: 40%;
-                // height: 300px;
                 position: absolute;
                 top: 10%;
                 right: 10%;
@@ -147,16 +152,14 @@ export default {
                 color: #111;
                 p{
                     overflow: hidden;
+                    position: relative;
+                    padding-left: 60px;
                 }
                 .name{
-                    font-size: 20px;
+                    font-size: 30px;
                     line-height: 30px;
                     margin-bottom: 10px;
-                    .score{
-                        float: right;
-                        font-size: 12px;
-                        color: #ff722c
-                    }
+                    padding:0;
                 }
                 span{
                     float: left;
@@ -170,11 +173,9 @@ export default {
                     color:#4a4a4a;
                     text-align: right;
                     margin-right: 10px;
-                }
-                .dsp{
-                    margin-top: 5px;
-                    text-indent: 15px;
-                    line-height: 20px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
                 }
             }
         }

@@ -1,39 +1,35 @@
 const http=require("http");
 const cheerio=require("cheerio");
 
-const url="http://sukantv.cn/"
+const url="http://z.qukansha.com/"
 function filterdata(html) {
     const $=cheerio.load(html);
-    let bannerInfo = [];
-    let mainInfo = [];
-    $('.banner .items').find('li').each((index, item) => {
-        bannerInfo.push({
-            bannerPic: $(item).attr('style').split("background-image:url('http://sukantv-1253425354.pictj.myqcloud.com")[1].split("')")[0],
-            bannerLink: $($('.banner .items').find('a')[index]).attr('href'),
-            bannerPicBase: ''
-        })
-    });
-    $('.container .list .push').each((index, item) => {
-        const title = $(item).find('.title strong').text();
-        let data = [];
-        const content = $(item).find('ul li').each((index, item) => {
-            data.push({
-                short: $(item).find('.img .short').text(),
-                link: $(item).find('a').attr('href'),
-                pic: $(item).find('.img img').attr('src'),
-                name: $(item).find('.info .name').text(),
-                score: $(item).find('.info .score').text(),
-                starring: $(item).find('.info .actors').text()
-            })
-        })
-        mainInfo.push({
-            title,
-            data
+    let movieInfo = [];
+    let tvSeriesInfo = [];
+    $('.main').each(function (index) {
+        const list = $(this).find('.list_tab_img').eq(0).find('li');
+        list.each(function () {
+            let pic = $(this).find('img').attr('data-original');
+            const info = {
+                link: $(this).find('a').attr('href'),
+                pic: pic.indexOf('/npimg.php?pic=') ? pic : 'http://z.qukansha.com'+pic,
+                name: $(this).find('.name').text() || $(this).find('h2 a').text(),
+                title: $(this).find('.title').text(),
+                score: $(this).find('.score').text(),
+                status: $(this).find('.status') === true,
+                starring: $(this).find('p').text()
+            };
+            if(index === 0){
+                movieInfo.push(info);
+            }
+            else{
+                tvSeriesInfo.push(info);
+            }
         })
     })
     return {
-        bannerInfo,
-        mainInfo
+        movieInfo,
+        tvSeriesInfo
     }
 }
 function crawler(cb) {

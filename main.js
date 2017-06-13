@@ -22,11 +22,11 @@ function createWindow() {
     mainWindow = new BrowserWindow(mainWindowParams);
     if (process.env.NODE_ENV === 'development') {
         console.log('开发环境');
-        mainWindow.loadURL('http://localhost:8080/resource/#/');
+        mainWindow.loadURL('http://localhost:8080/resource/#/home');
         mainWindow.webContents.openDevTools();
     }
     else {
-        mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
+        mainWindow.loadURL(`file://${__dirname}/dist/index.html#/home`);      
     }
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.show();

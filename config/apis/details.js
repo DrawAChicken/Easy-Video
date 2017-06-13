@@ -1,41 +1,56 @@
-const http=require("http");
-const cheerio=require("cheerio");
+const http=require('http');
+const cheerio=require('cheerio');
+const fs = require('fs');
 
 function filterdata(html) {
     const $=cheerio.load(html);
-    const info = $('.main .board .info ul');
-    let juji = $('.detail .juji li').map(function () {
-            return $(this).find('a').text();
-        }).toArray()
-    juji = juji.length ? juji : null;
+    const info = $('#resize_vod');
+    const pic = info.find('.vod-l img').attr('data-original');
+    let juji = []
+    $('.vod-play-info .play-title span').each(function (index) {
+        if (index > 0) {
+            juji.push({
+                title: $(this).find('a').text(),
+                data: $('.vod-play-info .play-box').eq(index).find('li').map(function() {
+                    return {
+                        name: $(this).find('a').attr('href'),
+                        link: $(this).find('a').text()
+                    }
+                })
+            })
+        }
+    }).toArray()
     return {
-        pic: $('.main .board .pic img').attr('src').split('_220')[0],
-        // amountPlay: $('.main .board .pic .view em').text(),
-        name: info.find('.name h1').text(),
-        score: info.find('.score em').text(),
-        actors: info.find('.actors a').map(function () {
-            return $(this).text();
+        pic: pic.indexOf('/npimg.php?pic=') ? pic : 'http://z.qukansha.com'+pic,
+        link: info.find('.vod_play a').attr('href'),
+        name: info.find('.vod-n-l h1').text(),
+        actors: info.find('.vod-n-l .vw100').eq(0).find('storng').map(function () {
+            return $(this).find('a').text();
         }).toArray(),
-        director: info.find('.director em').eq(1).text(),
-        type: info.find('.class a').map(function () {
-            return $(this).text();
+        director: info.find('.vod-n-l .vw50').eq(0).find('a').map(function () {
+            return $(this).text()
         }).toArray(),
-        year: info.find('.year em').eq(1).text(),
-        area: info.find('.area a').text(),
-        length: info.find('.length em').eq(1).text(),
-        dsp: info.find('.dsp em').eq(1).text(),
+        type: info.find('.vod-n-l .vw100').eq(1).find('a').map(function () {
+            return $(this).text()
+        }).toArray(),
+        year: info.find('.vod-n-l .vw100').eq(2).text(),
+        area: info.find('.vod-n-l .yc a').text(),
+        about: $('#con_vod_2 .vod_content').text(),
         juji
     }
 }
 function crawler(url, cb) {
-    http.get(url, res => {
-        var html="";
-        res.on("data", data => {
-            html+=data
-        });
-        res.on("end", () => {
-            cb(filterdata(html));
-        })
+    // http.get(url, res => {
+    //     var html="";
+    //     res.on("data", data => {
+    //         html+=data
+    //     });
+    //     res.on("end", () => {
+    //         cb(filterdata(html));
+    //     })
+    // });
+    fs.readFile(__dirname+'info.json', 'utf8', (err, data) => {
+        cb(data);
     });
 }
 module.exports = crawler
