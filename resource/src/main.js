@@ -12,15 +12,10 @@ import 'animate.css';
 
 Vue.use(VueLazyload, {
   error: erro,
-  loading: pic
+  loading: pic,
+  attempt: 1
 })
 Vue.use(ElementUI);
-Vue.directive('height', item => {
-	item.onresize = function (params) {
-		console.log(1);
-	}
-    // console.log(item.offsetHeight)
-})
 Vue.prototype.$remote = global.remote || {};
 Vue.prototype.$ipc = global.ipcRenderer || {};
 Vue.prototype.$remoteApi = global.remoteApi;

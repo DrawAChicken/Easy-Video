@@ -6,9 +6,9 @@ let mainWindow = null;
 // 主窗口参数
 let mainWindowParams = {
     width: 1000,
-    height: 600,
+    height: 660,
     minWidth: 800,
-    minHeight: 600,
+    minHeight: 550,
     title: 'EASY',
     center: true,
     // resizable: false,
@@ -22,11 +22,11 @@ function createWindow() {
     mainWindow = new BrowserWindow(mainWindowParams);
     if (process.env.NODE_ENV === 'development') {
         console.log('开发环境');
-        mainWindow.loadURL('http://localhost:8080/resource/#/home');
+        mainWindow.loadURL('http://localhost:8080/resource');
         mainWindow.webContents.openDevTools();
     }
     else {
-        mainWindow.loadURL(`file://${__dirname}/dist/index.html#/home`);      
+        mainWindow.loadURL(`file://${__dirname}/dist/index.html`);      
     }
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.show();

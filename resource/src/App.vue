@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<div id="title">
-			<p>Easy-Video</p>
+			<p></p>
 			<div class="history">
 				<el-button type="text" icon="caret-left" @click="history(-1)"></el-button>
 				<el-button type="text" icon="caret-right" @click="history(1)"></el-button>
@@ -71,9 +71,10 @@
 			padding-right: 30px;
 			p{
 				font-size: 12px;
-				width: 90px;				
+				width: 85px;				
 				float: left;
 				line-height: 56px;
+				height: 56px;
 				padding-left: 7px;
 			}
 			.history{

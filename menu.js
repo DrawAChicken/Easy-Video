@@ -10,6 +10,16 @@ const template = [{
             }
         },
         {
+            label: '复制',
+            accelerator: 'CmdOrCtrl+C',
+            role: 'copy'
+        },
+        {
+            label: '粘贴',
+            accelerator: 'CmdOrCtrl+V',
+            role: 'paste'
+        },
+        {
             role: 'quit',
             label: '退出 EASY'
         }

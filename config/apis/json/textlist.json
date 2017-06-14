@@ -1,0 +1,765 @@
+{
+    "typeList": [
+        {
+            "title": "分类",
+            "list": [
+                {
+                    "name": "国产剧",
+                    "link": "/?s=vod-show-id-15.html"
+                },
+                {
+                    "name": "香港剧",
+                    "link": "/?s=vod-show-id-16.html"
+                },
+                {
+                    "name": "台湾剧",
+                    "link": "/?s=vod-show-id-23.html"
+                },
+                {
+                    "name": "韩国剧",
+                    "link": "/?s=vod-show-id-24.html"
+                },
+                {
+                    "name": "日本剧",
+                    "link": "/?s=vod-show-id-18.html"
+                },
+                {
+                    "name": "欧美剧",
+                    "link": "/?s=vod-show-id-17.html"
+                },
+                {
+                    "name": "泰国剧",
+                    "link": "/?s=vod-show-id-25.html"
+                },
+                {
+                    "name": "海外剧",
+                    "link": "/?s=vod-show-id-19.html"
+                }
+            ]
+        },
+        {
+            "title": "类型",
+            "list": [
+                {
+                    "name": "国产",
+                    "link": "/?s=vod-type-id-2-mcid-192-picm-1.html"
+                },
+                {
+                    "name": "传奇",
+                    "link": "/?s=vod-type-id-2-mcid-199-picm-1.html"
+                },
+                {
+                    "name": "军事",
+                    "link": "/?s=vod-type-id-2-mcid-198-picm-1.html"
+                },
+                {
+                    "name": "历史",
+                    "link": "/?s=vod-type-id-2-mcid-74-picm-1.html"
+                },
+                {
+                    "name": "搞笑",
+                    "link": "/?s=vod-type-id-2-mcid-193-picm-1.html"
+                },
+                {
+                    "name": "革命",
+                    "link": "/?s=vod-type-id-2-mcid-203-picm-1.html"
+                },
+                {
+                    "name": "抗战",
+                    "link": "/?s=vod-type-id-2-mcid-200-picm-1.html"
+                },
+                {
+                    "name": "奇幻",
+                    "link": "/?s=vod-type-id-2-mcid-202-picm-1.html"
+                },
+                {
+                    "name": "文艺",
+                    "link": "/?s=vod-type-id-2-mcid-98-picm-1.html"
+                },
+                {
+                    "name": "未知",
+                    "link": "/?s=vod-type-id-2-mcid-81-picm-1.html"
+                },
+                {
+                    "name": "真人",
+                    "link": "/?s=vod-type-id-2-mcid-95-picm-1.html"
+                },
+                {
+                    "name": "时尚",
+                    "link": "/?s=vod-type-id-2-mcid-94-picm-1.html"
+                },
+                {
+                    "name": "旅游",
+                    "link": "/?s=vod-type-id-2-mcid-93-picm-1.html"
+                },
+                {
+                    "name": "动漫",
+                    "link": "/?s=vod-type-id-2-mcid-90-picm-1.html"
+                },
+                {
+                    "name": "魔幻",
+                    "link": "/?s=vod-type-id-2-mcid-86-picm-1.html"
+                },
+                {
+                    "name": "少女",
+                    "link": "/?s=vod-type-id-2-mcid-79-picm-1.html"
+                },
+                {
+                    "name": "歌舞",
+                    "link": "/?s=vod-type-id-2-mcid-99-picm-1.html"
+                },
+                {
+                    "name": "预告",
+                    "link": "/?s=vod-type-id-2-mcid-87-picm-1.html"
+                },
+                {
+                    "name": "罪案",
+                    "link": "/?s=vod-type-id-2-mcid-89-picm-1.html"
+                },
+                {
+                    "name": "励志",
+                    "link": "/?s=vod-type-id-2-mcid-92-picm-1.html"
+                }
+            ]
+        },
+        {
+            "title": "年代",
+            "list": [
+                {
+                    "name": "2015",
+                    "link": "/?s=vod-type-id-2-year-2015-picm-1.html"
+                },
+                {
+                    "name": "2014",
+                    "link": "/?s=vod-type-id-2-year-2014-picm-1.html"
+                },
+                {
+                    "name": "2013",
+                    "link": "/?s=vod-type-id-2-year-2013-picm-1.html"
+                },
+                {
+                    "name": "2012",
+                    "link": "/?s=vod-type-id-2-year-2012-picm-1.html"
+                },
+                {
+                    "name": "2011",
+                    "link": "/?s=vod-type-id-2-year-2011-picm-1.html"
+                },
+                {
+                    "name": "2010",
+                    "link": "/?s=vod-type-id-2-year-2010-picm-1.html"
+                },
+                {
+                    "name": "2009",
+                    "link": "/?s=vod-type-id-2-year-2009-picm-1.html"
+                },
+                {
+                    "name": "2008",
+                    "link": "/?s=vod-type-id-2-year-2008-picm-1.html"
+                },
+                {
+                    "name": "2007",
+                    "link": "/?s=vod-type-id-2-year-2007-picm-1.html"
+                },
+                {
+                    "name": "2006",
+                    "link": "/?s=vod-type-id-2-year-2006-picm-1.html"
+                }
+            ]
+        }
+    ],
+    "mainList": [
+        {
+            "title": "内地剧",
+            "link": "/?s=vod-show-id-15.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-112448.html",
+                    "pic": "http://wx3.sinaimg.cn/mw690/005HRWDRly1fgktj3yq3vj30b40go0x1.jpg",
+                    "name": "灵魂摆渡3",
+                    "title": "13",
+                    "score": "7.8"
+                },
+                {
+                    "link": "/?s=vod-read-id-112245.html",
+                    "pic": "http://photocdn.sohu.com/kis/fengmian/1206/1206953/1206953_ver_big_20170606164503.jpg",
+                    "name": "夏至未至",
+                    "title": "更新至6集 周一至周日24:00更新",
+                    "score": "6.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-111466.html",
+                    "pic": "http://joy.online.sh.cn/images/attachement/jpg/site1/20170512/IMG00251162344844455696158.jpg",
+                    "name": "楚乔传",
+                    "title": "更新至12集",
+                    "score": "8.5"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-112428.html",
+                    "name": "深夜食堂",
+                    "subName": "更新至4/共40集周日至周五更新2集；周六更新1集分"
+                },
+                {
+                    "link": "/?s=vod-read-id-112348.html",
+                    "name": "娘心",
+                    "subName": "更新至26集"
+                },
+                {
+                    "link": "/?s=vod-read-id-112231.html",
+                    "name": "一粒红尘",
+                    "subName": "更新至2集"
+                },
+                {
+                    "link": "/?s=vod-read-id-100148.html",
+                    "name": "幸福的错觉",
+                    "subName": "更新至16集"
+                },
+                {
+                    "link": "/?s=vod-read-id-112145.html",
+                    "name": "职场是个技术活",
+                    "subName": "更新至54集/共56集每周日至周五24:00更新两集周六24:00更新一集"
+                },
+                {
+                    "link": "/?s=vod-read-id-112144.html",
+                    "name": "女管家",
+                    "subName": "更新至13集/共43集每天24:00两集连播"
+                },
+                {
+                    "link": "/?s=vod-read-id-110773.html",
+                    "name": "女儿红",
+                    "subName": "更新至14集/共36集周一到周四24:00两集连播"
+                },
+                {
+                    "link": "/?s=vod-read-id-380.html",
+                    "name": "飞哥大英雄",
+                    "subName": "40集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-110772.html",
+                    "name": "思美人网络版",
+                    "subName": "更新至65集/共78集周日至周四24:00更新两集周五周六24:00更新一集"
+                }
+            ]
+        },
+        {
+            "title": "港剧",
+            "link": "/?s=vod-show-id-16.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-64958.html",
+                    "pic": "http://p0.qhimg.com/d/dy_7edbe2800c968910151f6083c7d95ec4.",
+                    "name": "城寨英雄",
+                    "title": "28集全",
+                    "score": "5.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-60611.html",
+                    "pic": "http://p0.qhimg.com/t0102ffd7416556edfe.jpg",
+                    "name": "法证先锋2",
+                    "title": "30集全",
+                    "score": "8.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-64.html",
+                    "pic": "http://g1.ykimg.com/05160000540985D767379F1162051540.jpg",
+                    "name": "使徒行者",
+                    "title": "31集全",
+                    "score": "9.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-65131.html",
+                    "name": "EU超时任务",
+                    "subName": "22集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-947.html",
+                    "name": "名媛望族",
+                    "subName": "40集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63564.html",
+                    "name": "斗气一族",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63537.html",
+                    "name": "国际刑警",
+                    "subName": "35集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63450.html",
+                    "name": "闯荡江湖",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63432.html",
+                    "name": "我的���搅年代",
+                    "subName": "40集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63426.html",
+                    "name": "再向虎山行",
+                    "subName": "更新至40集"
+                },
+                {
+                    "link": "/?s=vod-read-id-63422.html",
+                    "name": "仁心解码2",
+                    "subName": "25集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63325.html",
+                    "name": "九月鹰飞 86版",
+                    "subName": "17集全"
+                }
+            ]
+        },
+        {
+            "title": "台剧",
+            "link": "/?s=vod-show-id-23.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-975.html",
+                    "pic": "http://g4.ykimg.com/0516000051ECDB64675839201205C131.jpg",
+                    "name": "夜市人生",
+                    "title": "48集全",
+                    "score": "5.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-24067.html",
+                    "pic": "http://p3.qhimg.com/d/dy_b28a1b4e430624b694d34f1281831a12.jpg",
+                    "name": "老师错了",
+                    "title": "26集全",
+                    "score": "3.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-25122.html",
+                    "pic": "http://p7.qhimg.com/d/dy_c0b2741649f6b5c0b0bbbce8aebd1bb2.jpg",
+                    "name": "想飞",
+                    "title": "33集全",
+                    "score": "5.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-25982.html",
+                    "name": "挚爱奇缘",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-22141.html",
+                    "name": "温柔的慈悲",
+                    "subName": "更新至29集"
+                },
+                {
+                    "link": "/?s=vod-read-id-3469.html",
+                    "name": "荼蘼",
+                    "subName": "12集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62613.html",
+                    "name": "滚石爱情故事",
+                    "subName": "19集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-110531.html",
+                    "name": "美丽俏佳人",
+                    "subName": "定期更新：周一至周五 23:15"
+                },
+                {
+                    "link": "/?s=vod-read-id-799.html",
+                    "name": "美丽俏佳人",
+                    "subName": "第20131227期"
+                },
+                {
+                    "link": "/?s=vod-read-id-63364.html",
+                    "name": "非常任务",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62932.html",
+                    "name": "樱桃小丸子[真人版]",
+                    "subName": "30集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62894.html",
+                    "name": "圣剑飞鹰",
+                    "subName": "更新至26集"
+                }
+            ]
+        },
+        {
+            "title": "韩剧",
+            "link": "/?s=vod-show-id-24.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-60504.html",
+                    "pic": "http://p2.qhimg.com/t01fe302e2e85b40d61.jpg",
+                    "name": "请回答1988",
+                    "title": "20集全",
+                    "score": "7.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-59871.html",
+                    "pic": "http://p4.qhimg.com/t017abf3464a5165d5c.jpg",
+                    "name": "太阳的后裔",
+                    "title": "16集全",
+                    "score": "5.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-59830.html",
+                    "pic": "http://p7.qhimg.com/d/dy_b5e13724e9629deadc21eb20f1dd6a41.jpg",
+                    "name": "W两个世界",
+                    "title": "16集全",
+                    "score": "5.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-111628.html",
+                    "name": "大力女子都奉顺",
+                    "subName": "16"
+                },
+                {
+                    "link": "/?s=vod-read-id-111053.html",
+                    "name": "云画的月光",
+                    "subName": "共18集"
+                },
+                {
+                    "link": "/?s=vod-read-id-61878.html",
+                    "name": "蓝色大海的传说 cut",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63584.html",
+                    "name": "Two Weeks",
+                    "subName": "16集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63533.html",
+                    "name": "High School Love On",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-1500.html",
+                    "name": "风之画员",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-952.html",
+                    "name": "最佳爱情",
+                    "subName": "更新至32集"
+                },
+                {
+                    "link": "/?s=vod-read-id-547.html",
+                    "name": "对我说谎试试",
+                    "subName": "16集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-1283.html",
+                    "name": "千年之爱",
+                    "subName": "20集全"
+                }
+            ]
+        },
+        {
+            "title": "日剧",
+            "link": "/?s=vod-show-id-18.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-111218.html",
+                    "pic": "http://img24.pplive.cn/2017/05/27/18452415984_230X306.jpg",
+                    "name": "最后的警察",
+                    "title": "共7集,已更新至第4集",
+                    "score": "4.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-111178.html",
+                    "pic": "http://img24.pplive.cn/2017/04/24/17283517593_230X306.jpg",
+                    "name": "学校的阶梯",
+                    "title": "共10集,已更新至第10集完",
+                    "score": "4.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-111165.html",
+                    "pic": "http://img24.pplive.cn/2017/03/16/17184035389_230X306.jpg",
+                    "name": "产科医鸿鸟",
+                    "title": "共10集,已更新至第10集完",
+                    "score": "6.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-110984.html",
+                    "name": "迪迦奥特曼",
+                    "subName": "52集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63572.html",
+                    "name": "和歌子的酒第1季",
+                    "subName": "12集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62672.html",
+                    "name": "四重奏",
+                    "subName": "10集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61757.html",
+                    "name": "夜型爱人专门店",
+                    "subName": "12集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-60593.html",
+                    "name": "宠物情人",
+                    "subName": "16集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-60280.html",
+                    "name": "重版出来",
+                    "subName": "10集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-60266.html",
+                    "name": "总有一天要在蒂芙尼吃早餐",
+                    "subName": "8集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-60245.html",
+                    "name": "孤独的美食家SP-东北宫城出差篇",
+                    "subName": "1集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-60156.html",
+                    "name": "纯白",
+                    "subName": "10集全"
+                }
+            ]
+        },
+        {
+            "title": "美剧",
+            "link": "/?s=vod-show-id-17.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-112333.html",
+                    "pic": "http://r3.ykimg.com/051600005922B042ADBC096E800D5C96",
+                    "name": "绿野血踪 第一季",
+                    "title": "10集全 ",
+                    "score": "4.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-65654.html",
+                    "pic": "http://p0.qhimg.com/d/dy_61ae337ce0001bb827afbf991e1b959d.",
+                    "name": "梅格雷探案",
+                    "title": "2集全",
+                    "score": "9.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-111039.html",
+                    "pic": "http://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/e/el4owfz3zlpjiso.jpg",
+                    "name": "患难与共第二季",
+                    "title": "周一更新1集",
+                    "score": "5.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-111198.html",
+                    "name": "老妈 第三季",
+                    "subName": "更新至12集 周五至周六24:00更新1集"
+                },
+                {
+                    "link": "/?s=vod-read-id-65530.html",
+                    "name": "生活大爆炸 第十季",
+                    "subName": "热播"
+                },
+                {
+                    "link": "/?s=vod-read-id-111197.html",
+                    "name": "密谍伙伴第2季",
+                    "subName": "共10集,已更新至第10集完"
+                },
+                {
+                    "link": "/?s=vod-read-id-2340.html",
+                    "name": "犯罪心理第十季",
+                    "subName": "23集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-60418.html",
+                    "name": "SDCC迷妹世界",
+                    "subName": "更新至5集"
+                },
+                {
+                    "link": "/?s=vod-read-id-111141.html",
+                    "name": "真实的人类第二季",
+                    "subName": "共8集"
+                },
+                {
+                    "link": "/?s=vod-read-id-111042.html",
+                    "name": "华尔街大佬",
+                    "subName": ""
+                },
+                {
+                    "link": "/?s=vod-read-id-111037.html",
+                    "name": "影后天团",
+                    "subName": ""
+                },
+                {
+                    "link": "/?s=vod-read-id-65551.html",
+                    "name": "荒原 第二季",
+                    "subName": "热播"
+                }
+            ]
+        },
+        {
+            "title": "泰剧",
+            "link": "/?s=vod-show-id-25.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-65045.html",
+                    "pic": "http://imgwx5.2345.com/dypcimg/tv/img/f/17/sup52988_223x310.jpg",
+                    "name": "宫[泰国版][国语]",
+                    "title": "更新至12集",
+                    "score": "6.6"
+                },
+                {
+                    "link": "/?s=vod-read-id-3465.html",
+                    "pic": "http://p3.qhimg.com/d/dy_dd6ae8882438bbe32f85b8c19b731e69.jpg",
+                    "name": "宫[泰国版] 国语",
+                    "title": "更新至10集",
+                    "score": "9.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-64954.html",
+                    "pic": "http://p0.qhimg.com/t01d0933aba448e7f53.jpg",
+                    "name": "悲恋花",
+                    "title": "37集全",
+                    "score": "8.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-63425.html",
+                    "name": "月光项链",
+                    "subName": "18集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63243.html",
+                    "name": "网红养成记[泰语]",
+                    "subName": "8集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-63209.html",
+                    "name": "网红养成记 国语",
+                    "subName": "8集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62834.html",
+                    "name": "泰版浪漫满屋",
+                    "subName": "20集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62541.html",
+                    "name": "星月缘",
+                    "subName": "14集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-546.html",
+                    "name": "无忧的天堂",
+                    "subName": "更新至43集"
+                },
+                {
+                    "link": "/?s=vod-read-id-61650.html",
+                    "name": "血脉 泰国版",
+                    "subName": "33集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61662.html",
+                    "name": "沙丘上的天堂",
+                    "subName": "更新至15集"
+                },
+                {
+                    "link": "/?s=vod-read-id-53829.html",
+                    "name": "凤凰血",
+                    "subName": "共20集"
+                }
+            ]
+        },
+        {
+            "title": "海外剧",
+            "link": "/?s=vod-show-id-19.html",
+            "imgList": [
+                {
+                    "link": "/?s=vod-read-id-63565.html",
+                    "pic": "http://p1.qhimg.com/d/dy_983910b2dbfd6d17f6ed388ef635e1d7.jpg",
+                    "name": "二战 帝国的代价",
+                    "title": "13集全",
+                    "score": "7.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-63337.html",
+                    "pic": "http://p3.qhimg.com/d/dy_4ef985c9b978d8d72906cbc30448e481.jpg",
+                    "name": "神雕侠侣 范文芳版",
+                    "title": "40集全",
+                    "score": "6.0"
+                },
+                {
+                    "link": "/?s=vod-read-id-63312.html",
+                    "pic": "http://p8.qhimg.com/d/dy_9feae77d636c3e91b17dfe7f4a4b3c53.jpg",
+                    "name": "川普是怎样炼成的",
+                    "title": "1集全",
+                    "score": "2.0"
+                }
+            ],
+            "textList": [
+                {
+                    "link": "/?s=vod-read-id-63267.html",
+                    "name": "BBC：自然界怪奇事件 第四季",
+                    "subName": "3集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62828.html",
+                    "name": "吸血鬼公主",
+                    "subName": "1集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-62025.html",
+                    "name": "樱之味 舌尖上的日本",
+                    "subName": "6集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61762.html",
+                    "name": "日本投降",
+                    "subName": "1集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61759.html",
+                    "name": "蝎子-致命八条腿",
+                    "subName": "1集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61751.html",
+                    "name": "金字塔死亡诅咒",
+                    "subName": "1集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61752.html",
+                    "name": "未发现的中国",
+                    "subName": "6集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61639.html",
+                    "name": "纵横捭阖的历史",
+                    "subName": "3集全"
+                },
+                {
+                    "link": "/?s=vod-read-id-61535.html",
+                    "name": "U-455神秘消失的潜艇",
+                    "subName": "1集全"
+                }
+            ]
+        }
+    ]
+}

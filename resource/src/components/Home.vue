@@ -8,15 +8,15 @@
                 </h3>
             </div>
             <div class="cell" v-for="itemData in item.data">
-                <div class="img" @click="goDetails(itemData.link)">
+                <router-link tag="div" :to="{path: 'details', query: { url: itemData.link } }" class="img" append>
                     <img v-lazy="itemData.pic" :alt="itemData.name">
                     <p class="title">{{itemData.title}}</p>
-                    <div class="video-info" v-height>
+                    <div class="video-info">
                         <p class="name">{{itemData.name}}</p>
                         <p class="short" v-if="itemData.score">评分： {{itemData.score}}</p>							
                         <p class="starring">{{itemData.starring}}</p>
                     </div>
-                </div>
+                </router-link>
             </div>
         </li>
     </ul>
@@ -29,11 +29,11 @@ export default {
 			info: [
 				{
 					title: '热门影片',
-					link: '/dy'
+					link: '/dy/classList?id=1'
 				},
 				{
 					title: '热播电视',
-					link: '/dsj'
+					link: '/dsj/classList?id=2'
 				}
 			]
         };
@@ -41,7 +41,7 @@ export default {
 	methods: {
 		goDetails(val) {
 			this.$router.push({
-                    path: '/details',
+                    path: 'details',
                     query: {
                         url: val
                     }
@@ -53,12 +53,12 @@ export default {
 			this.info = [
 				{
 					title: '热门影片',
-					link: '/dy',
+					link: '/dy/classList?id=1',
 					data: data.movieInfo
 				},
 				{
 					title: '热播电视',
-					link: '/dsj',
+					link: '/dsj/classList?id=2',
 					data: data.tvSeriesInfo
 				}
 			]
@@ -86,10 +86,10 @@ export default {
 				h3{
 					height: 30px;
 					margin: 0;
-					font-size: 16px;
+					font-size: 18px;
 					font-weight: normal;
 					border-bottom: 2px solid #e1e1e1;
-					color: #6d6d6d;
+					color: #4a4a4a;
 					box-sizing: border-box;
 					overflow: hidden;					
 					span{
