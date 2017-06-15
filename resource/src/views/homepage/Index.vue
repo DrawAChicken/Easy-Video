@@ -2,14 +2,14 @@
 	<div>
 		<ul class="left-side-menu">
 			<router-link tag="li" to="/home">首页</router-link>
-			<router-link tag="li" to="/dy/classList?id=1">电影</router-link>
-			<router-link tag="li" to="/dsj/classList?id=2">电视剧</router-link>
-			<router-link tag="li" to="/dm/detailsList?id=3">动漫</router-link>
-			<router-link tag="li" to="/zy/detailsList?id=4">综艺</router-link>
-			<router-link tag="li" to="/bd/classList?id=top">榜单</router-link>
+			<router-link tag="li" to="/dy/classList?url=/?s=vod-show-id-1.html">电影</router-link>
+			<router-link tag="li" to="/dsj/classList?url=/?s=vod-show-id-2.html">电视剧</router-link>
+			<router-link tag="li" to="/dm/detailsList?url=/?s=vod-show-id-3.html">动漫</router-link>
+			<router-link tag="li" to="/zy/detailsList?url=/?s=vod-show-id-4.html">综艺</router-link>
+			<router-link tag="li" to="/bd/classList?url=/?s=my-show-id-top.html">榜单</router-link>
 			<li class="refresh" @click="goDetails('itemData.link')">刷新资源 <i class="el-icon-upload"></i></li>
 		</ul>
-		<router-view></router-view>
+		<router-view class="main-content"></router-view>
 	</div>
 </template>
 
@@ -62,5 +62,8 @@ export default {
 				padding-left: 15px;
 			}
 		}
+	}
+	.main-content{
+		position: relative;
 	}
 </style>

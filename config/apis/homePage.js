@@ -1,7 +1,7 @@
 const filterData = require('./common');
 
-module.exports = function (cb) {
-    filterData('http://z.qukansha.com/', $ => {
+module.exports = function (url, cb) {
+    filterData(url, $ => {
         let movieInfo = [];
         let tvSeriesInfo = [];
         $('.main').each(function (index) {
@@ -31,3 +31,10 @@ module.exports = function (cb) {
         })
     })
 }
+
+// const fs = require('fs');
+// module.exports = function (url, cb) {
+//     fs.readFile(__dirname+'/json/homepage.json','utf8', function(err, data) {
+//         cb(JSON.parse(data))
+//     });
+// }

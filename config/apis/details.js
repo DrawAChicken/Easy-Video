@@ -57,3 +57,10 @@ module.exports = function (url, cb) {
         })
     })
 }
+
+// const fs = require('fs');
+// module.exports = function (url, cb) {
+//     fs.readFile(__dirname+'/json/apisinfo.json','utf8', function(err, data) {
+//         cb(JSON.parse(data))
+//     });
+// }

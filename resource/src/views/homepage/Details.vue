@@ -49,7 +49,7 @@
 export default {
     data() {
         return {
-            info: {}
+            info: ''
         };
     },
     methods: {
@@ -57,8 +57,10 @@ export default {
             console.log(1);
         }
     },
-    created() {
-        this.$remoteApi.details(`http://z.qukansha.com${this.$route.query.url}`, data => {
+    mounted() {
+        this.$remoteApi.details(`http://z.qukansha.com${this.$route.query.url}`, {
+            el: this.$el
+        }, data => {
             const status = data.status.split('：');
             if (status[0] === '清晰') {
                 data.status = '完结'
@@ -74,25 +76,26 @@ export default {
             }
             this.$set(this, 'info', data);
 		})
-    },
-    mounted() {
-        // const q = document.getElementById("ad");
-        // q.addEventListener('did-get-response-details', function (e) {
-        //     // webview.insertText('text');
-        //     // q.openDevTools()
-        //     // console.log(e);
-        //     // const requestId = webview.findInPage('video')
-        //     // console.log(requestId)
-        //     // webview.contentWindow.document.getElementById("myVideo");
-        //     // console.log(webview.contentWindow)
-        // });
-        // webview.addEventListener('found-in-page', (e) => {
-        //     console.log(e)            
-        //     console.log(e.target.dataset.constructor('li'))
-        //     webview.stopFindInPage('keepSelection')
-        // })
-        
     }
+    // ,
+    // mounted() {
+    //     // const q = document.getElementById("ad");
+    //     // q.addEventListener('did-get-response-details', function (e) {
+    //     //     // webview.insertText('text');
+    //     //     // q.openDevTools()
+    //     //     // console.log(e);
+    //     //     // const requestId = webview.findInPage('video')
+    //     //     // console.log(requestId)
+    //     //     // webview.contentWindow.document.getElementById("myVideo");
+    //     //     // console.log(webview.contentWindow)
+    //     // });
+    //     // webview.addEventListener('found-in-page', (e) => {
+    //     //     console.log(e)            
+    //     //     console.log(e.target.dataset.constructor('li'))
+    //     //     webview.stopFindInPage('keepSelection')
+    //     // })
+        
+    // }
 };
 </script>
 
@@ -143,7 +146,7 @@ export default {
                     opacity: 0;
                     position: absolute;
                     transition: all .5s;
-                    background: url('../assets/play.png');      
+                    background: url('../../assets/play.png');      
                     background-size: 100%;
                 }
                 &:hover .play-icon{
