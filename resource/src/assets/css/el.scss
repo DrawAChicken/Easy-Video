@@ -1,0 +1,16 @@
+.el-popover{
+    padding: 0;
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+    .el-tabs__header{
+        margin: 0;
+        .el-tabs__item:hover{
+            color: #efefef;
+        }
+        .is-active{
+            color: #efefef;
+            border-bottom-color: #1e2022 !important;
+        }
+    }
+}

@@ -46,12 +46,12 @@ export default {
 			this.info = [
 				{
 					title: '热门影片',
-					link: '/dy/classList?id=1&type=dy',
+					link: '/dy/classList?url=/?s=vod-show-id-1.html',
 					data: data.movieInfo
 				},
 				{
 					title: '热播电视',
-					link: '/dsj/classList?id=2&type=dsj',
+					link: '/dsj/classList?url=/?s=vod-show-id-2.html',
 					data: data.tvSeriesInfo
 				}
 			]

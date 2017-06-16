@@ -10,6 +10,7 @@ import Loading from './components/loading/index.js';
 import 'element-ui/lib/theme-default/index.css'
 import 'normalize.css';
 import 'animate.css';
+import '../src/assets/css/el.scss';
 
 Vue.use(VueLazyload, {
   error: erro,
@@ -24,7 +25,12 @@ Vue.prototype.$remoteApi = {};
 Object.keys(global.remoteApi).reduce((pre, cur) => {
 	pre[cur] = function(url, opt, cb) {
 		let load = Loading(opt);
-		global.remoteApi[cur](url, data => {
+		global.remoteApi[cur](url, (err, data) => {
+			if (err) {
+				console.log(err);
+				load.errorMsg(err);				
+				return
+			}
 			cb(data)
 			load.close()
 		})
@@ -36,10 +42,5 @@ new Vue({
 	el: '#app',	
 	router,
 	store,
-	watch: {
-		$remoteApi(cal) {
-			console.log(1);
-		}
-	},
 	render: h => h(App)
 });

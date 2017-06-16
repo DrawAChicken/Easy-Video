@@ -37,8 +37,8 @@ module.exports = {
         loader: ['style-loader', 'css-loader']
       },
       {
-        test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader' 
+        test: /\.(scss|sass)$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,

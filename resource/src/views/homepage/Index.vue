@@ -2,10 +2,10 @@
 	<div>
 		<ul class="left-side-menu">
 			<router-link tag="li" to="/home">首页</router-link>
-			<router-link tag="li" to="/dy/classList?url=/?s=vod-show-id-1.html">电影</router-link>
-			<router-link tag="li" to="/dsj/classList?url=/?s=vod-show-id-2.html">电视剧</router-link>
-			<router-link tag="li" to="/dm/detailsList?url=/?s=vod-show-id-3.html">动漫</router-link>
-			<router-link tag="li" to="/zy/detailsList?url=/?s=vod-show-id-4.html">综艺</router-link>
+			<router-link tag="li" to="/dy">电影</router-link>
+			<router-link tag="li" to="/dsj">电视剧</router-link>
+			<router-link tag="li" to="/dm">动漫</router-link>
+			<router-link tag="li" to="/zy">综艺</router-link>
 			<router-link tag="li" to="/bd/classList?url=/?s=my-show-id-top.html">榜单</router-link>
 			<li class="refresh" @click="goDetails('itemData.link')">刷新资源 <i class="el-icon-upload"></i></li>
 		</ul>

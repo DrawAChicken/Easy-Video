@@ -3,12 +3,21 @@
         <div class="bg" :style="{'background-image': `url(${info.pic})`}"></div>
         <div class="board">
             <!--<webview id="ad" src="http://jiexi.fuquanjie.cn/playm3u8/?type=pptvyun&vid=bf8a39b7e42fae8f52ac1e5a2d44fb40" useragent="Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1" plugins></webview>-->
+            <el-popover
+                ref="popover"
+                placement="right"
+                width="400"
+                trigger="click"
+                :visible-arrow="false">
+                <el-tabs class="tab" type="card" ref="tabs">
+                    <el-tab-pane :label="item.title" v-for="(item, index) in info.juji" :key="index">
+                        <router-link to="" v-for="i in item.data" :key="i">{{i.name}}</router-link>
+                    </el-tab-pane>
+                </el-tabs>
+            </el-popover>
             <div class="pic">
                 <img :src="info.pic" alt="">
-                <em class="play-icon" @click="goPlay()"></em>
-                <!--<ul class="blues" v-if="info.juji" >
-                    <li v-for="item in info.juji">{{item}}</li>
-                </ul>-->
+                <el-button type="text" class="play-icon" v-popover:popover></el-button>
             </div>
             <div class="video-info">
                 <p class="name">{{info.name}}</p>
@@ -54,7 +63,7 @@ export default {
     },
     methods: {
         goPlay() {
-            console.log(1);
+            this.showTab = true;
         }
     },
     mounted() {
@@ -77,7 +86,6 @@ export default {
             this.$set(this, 'info', data);
 		})
     }
-    // ,
     // mounted() {
     //     // const q = document.getElementById("ad");
     //     // q.addEventListener('did-get-response-details', function (e) {
@@ -156,6 +164,8 @@ export default {
             .video-info{
                 padding: 10px;
                 width: 40%;
+                height: 80%;
+                overflow: auto;
                 position: absolute;
                 top: 10%;
                 right: 10%;
@@ -189,6 +199,42 @@ export default {
                     position: absolute;
                     left: 0;
                     top: 0;
+                }
+            }
+        }
+    }
+    .tab{
+        width: 100%;
+        overflow: hidden;
+        background: #1e2022;
+        border-radius: 4px;
+        .el-tab-pane{
+            padding:5px;
+            width: 100%;
+            max-height: 80vh;
+            overflow: auto;
+            border: 1px solid #d1dbe5;
+            border-top: 0;
+            margin-top: -1px;
+            border-radius: 0 0 4px 4px;
+            a{
+                width: 12.5%;
+                padding: 0 3px;
+                text-align: center;
+                font-size: 12px;
+                color: #e3e3e3;
+                float: left;
+                text-decoration: none;
+                border-bottom: 1px;
+                height: 33px;
+                line-height: 33px;
+                overflow: hidden;
+                border-radius: 3px;
+                &:hover{
+                    background: #fff;
+                    color: #4a4a4a;
+                    font-size: 10px;
+                    transform: scale(1.3);
                 }
             }
         }

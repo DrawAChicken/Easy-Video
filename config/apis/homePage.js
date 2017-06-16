@@ -1,7 +1,11 @@
 const filterData = require('./common');
 
 module.exports = function (url, cb) {
-    filterData(url, $ => {
+    filterData(url, (err, $) => {
+        if (err) {
+            cb(err, null);
+            return
+        }
         let movieInfo = [];
         let tvSeriesInfo = [];
         $('.main').each(function (index) {
@@ -25,7 +29,7 @@ module.exports = function (url, cb) {
                 }
             })
         })
-        cb({
+        cb(null, {
             movieInfo,
             tvSeriesInfo
         })

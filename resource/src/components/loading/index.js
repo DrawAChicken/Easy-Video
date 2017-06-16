@@ -7,7 +7,9 @@ let getAnInstance = () => {
         el: document.createElement('div')
     })
 }
-
+LoadingConstructor.prototype.errorMsg = function (opt) {
+    this.apiError = true
+}
 LoadingConstructor.prototype.close = function () {
     if (this.$el.parentNode) {
         this.$el.parentNode.removeChild(this.$el);

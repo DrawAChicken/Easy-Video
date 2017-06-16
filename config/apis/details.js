@@ -1,7 +1,11 @@
 const filterData = require('./common');
 
 module.exports = function (url, cb) {
-    filterData(url, $ => {
+    filterData(url, (err, $) => {
+        if (err) {
+            cb(err, null);
+            return
+        }
         const info = $('#resize_vod');
         const pic = info.find('.vod-l img').attr('data-original');
         let juji = []
@@ -9,12 +13,12 @@ module.exports = function (url, cb) {
             if (index > 0) {
                 juji.push({
                     title: $(this).find('a').text(),
-                    data: $('.vod-play-info .play-box').eq(index).find('li').map(function() {
+                    data: $('.vod-play-info .play-box').eq(index - 1).find('li').map(function() {
                         return {
-                            name: $(this).find('a').attr('href'),
-                            link: $(this).find('a').text()
+                            link: $(this).find('a').attr('href'),
+                            name: $(this).find('a').attr('title')
                         }
-                    })
+                    }).toArray()
                 })
             }
         }).toArray()
@@ -42,7 +46,7 @@ module.exports = function (url, cb) {
         }else{
             type = ['未知']
         }
-        cb({
+        cb(null, {
             pic: pic.indexOf('/npimg.php?pic=') ? pic : 'http://z.qukansha.com'+pic,
             link: info.find('.vod_play a').attr('href'),
             status:info.find('.vod-n-l .clear.fn-left').text().replace('\r\n', ''),

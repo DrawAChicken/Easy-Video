@@ -19,14 +19,22 @@ export default new Router({
                     path: '/home',
                     component: Home
                 },
-                // {
-                //     path: '/dy',
-                //     component: Home
-                // },
-                // {
-                //     path: '/dsj',
-                //     component: Home
-                // },
+                {
+                    path: '/dy',
+                    redirect: '/dy/classList?url=/?s=vod-show-id-1.html'
+                },
+                {
+                    path: '/dsj',
+                    redirect: '/dsj/classList?url=/?s=vod-show-id-2.html'
+                },
+                {
+                    path: '/dm',
+                    redirect: '/dm/detailsList?url=/?s=vod-show-id-3.html'
+                },
+                {
+                    path: '/zy',
+                    redirect: '/zy/detailsList?url=/?s=vod-show-id-4.html'
+                },
                 {
                     path: '/:id/details',
                     component: Details

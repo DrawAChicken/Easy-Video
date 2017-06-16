@@ -4,7 +4,7 @@
             <dl v-for="item in info.typeList" class="type-list">
                 <dt class="title">{{item.title}}</dt>
                 <dd class="content" v-for="typeData in item.list">
-                    <router-link :to="{path: 'details', query: {url: typeData.link}}">
+                    <router-link :to="{path: 'detailsList', query: {url: typeData.link}}">
                         {{typeData.name}}
                     </router-link>
                 </dd>
@@ -14,7 +14,7 @@
             <div class="title">
                 <h3>
                     <span>{{item.title}}</span>
-                    <router-link :to="item.link" tag="em">查看更多<i class="el-icon-arrow-right"></i></router-link>
+                    <router-link :to="{path: 'detailsList', query: {url: item.link}}" tag="em">查看更多<i class="el-icon-arrow-right"></i></router-link>
                 </h3>
             </div>
             <div class="cell" v-for="itemData in item.imgList">

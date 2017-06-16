@@ -1,6 +1,14 @@
 <template>
     <div class="loading">
-        <div class="spinner">
+        <div class="spinner-err" v-if="apiError">
+            <img src="../../assets/error.png" alt="">
+            <p class="button">
+                <em>数据加载失败</em>
+                <em>网络或服务器延迟，请稍后再试</em>
+                <el-button size="small" @click="refresh">刷新<i class="el-icon-setting el-icon--right"></i></el-button>
+            </p>
+        </div>
+        <div class="spinner" v-else>
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
             <p class="text">
@@ -16,6 +24,10 @@ export default {
         message: {
             type: String,
             default: 'loading...'
+        },
+        apiError: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -29,12 +41,39 @@ export default {
     methods: {
         setDelay() {
             return `${Math.random()}s`;
+        },
+        refresh() {
+            location.reload();
         }
     }
 };
 </script>
 
 <style lang="css" scoped>
+    .spinner-err{
+        width: 100%;
+        height: 100%;
+        padding-top: 10%;
+    }
+    .spinner-err img {
+        width: 250px;
+        height: 240px;
+        display: block;
+        margin: 0 auto;
+    }
+    .spinner-err .button{
+        text-align: center;
+    }
+    .spinner-err .button button{
+        margin-top: 10px;
+    }
+    .spinner-err .button em {
+        font-style: normal;
+        display: block;
+        color: #9a9a9a;
+        font-size: 14px;
+        line-height: 25px;
+    }
     .content-area .loading{
         transform: translateX(-5%);
     }
