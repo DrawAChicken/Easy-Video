@@ -4,7 +4,7 @@
             <img src="../../assets/error.png" alt="">
             <p class="button">
                 <em>数据加载失败</em>
-                <em>网络或服务器延迟，请稍后再试</em>
+                <em>{{errMsg || "网络或服务器延迟，请稍后再试"}}</em>
                 <el-button size="small" @click="refresh">刷新<i class="el-icon-setting el-icon--right"></i></el-button>
             </p>
         </div>
@@ -38,12 +38,24 @@ export default {
     created() {
         this.text = this.message.split('');
     },
+    computed: {
+        errMsg() {
+            return navigator.onLine ? '' : '无法连接到网络，请检查网络链接'
+        }
+    },
     methods: {
         setDelay() {
             return `${Math.random()}s`;
         },
         refresh() {
-            location.reload();
+            let hash = location.hash;
+            if (hash.indexOf('fuckrefresh') < 0) {
+                location.href = `${hash}&fuckrefresh=${Math.random()}`;
+            }
+            else {
+                hash = hash.split('&fuckrefresh')[0];
+                location.href = `${hash}&fuckrefresh=${Math.random()}`;
+            }
         }
     }
 };

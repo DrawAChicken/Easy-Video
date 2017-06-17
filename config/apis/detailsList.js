@@ -1,4 +1,4 @@
-const filterData = require('./common');
+const filterData = require('./common').parsingHTML;
 
 module.exports = function (url, cb) {
     filterData(url, (err, $) => {

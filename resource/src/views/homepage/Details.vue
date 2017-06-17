@@ -2,7 +2,6 @@
     <div class="box">
         <div class="bg" :style="{'background-image': `url(${info.pic})`}"></div>
         <div class="board">
-            <!--<webview id="ad" src="http://jiexi.fuquanjie.cn/playm3u8/?type=pptvyun&vid=bf8a39b7e42fae8f52ac1e5a2d44fb40" useragent="Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1" plugins></webview>-->
             <el-popover
                 ref="popover"
                 placement="right"
@@ -16,7 +15,7 @@
                 </el-tabs>
             </el-popover>
             <div class="pic">
-                <img :src="info.pic" alt="">
+                <img :src="info.pic" :alt="info.name" @error="setErrorImg">
                 <el-button type="text" class="play-icon" v-popover:popover></el-button>
             </div>
             <div class="video-info">
@@ -62,8 +61,9 @@ export default {
         };
     },
     methods: {
-        goPlay() {
-            this.showTab = true;
+        setErrorImg(e) {
+            e.target.src = require('../../assets/erroPic.png');
+            e.target.style = 'border: 1px solid #ccc';
         }
     },
     mounted() {
@@ -86,24 +86,6 @@ export default {
             this.$set(this, 'info', data);
 		})
     }
-    // mounted() {
-    //     // const q = document.getElementById("ad");
-    //     // q.addEventListener('did-get-response-details', function (e) {
-    //     //     // webview.insertText('text');
-    //     //     // q.openDevTools()
-    //     //     // console.log(e);
-    //     //     // const requestId = webview.findInPage('video')
-    //     //     // console.log(requestId)
-    //     //     // webview.contentWindow.document.getElementById("myVideo");
-    //     //     // console.log(webview.contentWindow)
-    //     // });
-    //     // webview.addEventListener('found-in-page', (e) => {
-    //     //     console.log(e)            
-    //     //     console.log(e.target.dataset.constructor('li'))
-    //     //     webview.stopFindInPage('keepSelection')
-    //     // })
-        
-    // }
 };
 </script>
 
