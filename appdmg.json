@@ -1,6 +1,6 @@
 {
-  "title": "Cli",
-  "icon": "src/assets/img/cli.icns",
+  "title": "高鸡儿",
+  "icon": "logo/cli.icns",
   "background-color": "#eee",
   "contents": [
     { "x": 448, "y": 200, "type": "link", "path": "/Applications" },

@@ -1,4 +1,5 @@
 const filterData = require('./common').parsingHTML;
+const PicPath = require('../utils/filterPicPath');
 
 module.exports = function (url, cb) {
     filterData(url, (err, $) => {
@@ -25,7 +26,7 @@ module.exports = function (url, cb) {
                 const pic = $(this).find('img').attr('data-original')
                 return {
                     link: $(this).find('a').attr('href'),
-                    pic: pic.indexOf('/npimg.php?pic=') ? pic : 'http://z.qukansha.com'+pic,
+                    pic: PicPath(pic),
                     name: $(this).find('a').attr('title'),
                     title: $(this).find('.title').text(),
                     score: $(this).find('.score').text()

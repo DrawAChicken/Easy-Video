@@ -12,7 +12,7 @@
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
             <p class="text">
-                <span v-for="item in text" :style="{'animation-delay': setDelay()}"> {{item}} </span>
+                <span v-for="item in text" :key="item" :style="{'animation-delay': setDelay()}"> {{item}} </span>
             </p>
         </div>
     </div>

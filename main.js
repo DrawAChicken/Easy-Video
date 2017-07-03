@@ -9,7 +9,7 @@ let mainWindowParams = {
     height: 660,
     minWidth: 800,
     minHeight: 550,
-    title: 'EASY',
+    title: 'video',
     center: true,
     // resizable: false,
     backgroundColor: '#fff',

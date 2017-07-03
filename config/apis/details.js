@@ -1,4 +1,5 @@
 const filterData = require('./common').parsingHTML;
+const PicPath = require('../utils/filterPicPath');
 
 module.exports = function (url, cb) {
     filterData(url, (err, $) => {
@@ -47,7 +48,7 @@ module.exports = function (url, cb) {
             type = ['未知']
         }
         cb(null, {
-            pic: pic.indexOf('/npimg.php?pic=') ? pic : 'http://z.qukansha.com'+pic,
+            pic: PicPath(pic),
             link: info.find('.vod_play a').attr('href'),
             status:info.find('.vod-n-l .clear.fn-left').text().replace('\r\n', ''),
             name: info.find('.vod-n-l h1').text(),

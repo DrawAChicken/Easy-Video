@@ -1,17 +1,43 @@
 const filterData = require('./common').parsingVideo;
+const URL = require('url');
 
-// module.exports = 
-(function (url, cb) {
-    filterData(url, (err, $) => {
+module.exports = function (path, cb) {
+    const URLOptions = {
+        hostname: 'z.qukansha.com',
+        path
+    }
+    filterData(URLOptions, (err, $) => {
         if (err) {
             cb(err, null);
             return
         }
-        cb(null, $('.playerbox #media').attr('src'))
+        const iframeUrl = $('.playerbox #media').attr('src');
+        const {hostname, path} = URL.parse(iframeUrl);
+        if (hostname === 'jiexi.fuquanjie.cn') {
+            cb(null, {
+                type: '1',
+                url: iframeUrl
+            })
+            return
+        }
+        filterData({
+            hostname,
+            path
+        }, (err, $) => {
+            if (err) {
+                cb(err, null);
+                return
+            }
+            cb(null, {
+                type: '2',
+                url: $('[name=mp4url]').attr('value')
+            })
+        })
     })
-})('?s=vod-play-id-112440-sid-0-pid-1.html', (err, data) => {
-    console.log(err || data)
-})
+}
+// )('?s=vod-play-id-112440-sid-0-pid-1.html', (err, data) => {
+//     console.log(err || data)
+// })
 
 // const fs = require('fs');
 // module.exports = function (url, cb) {

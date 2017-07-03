@@ -7,7 +7,7 @@ function parsingHTML(url, callback) {
     let html = '';
     const req = http.get(url, res => {
         const { statusCode } = res;
-        if (statusCode !== 200) {
+        if (statusCode !== 200 && statusCode !== 302) {
             callback(`请求失败。状态码：${statusCode}`, null);
         }
         res.setTimeout(20000);
@@ -44,9 +44,9 @@ function parsingHTML(url, callback) {
 function parsingVideo(url, callback) {
     const options = {
         // http://z.qukansha.com/?s=vod-play-id-65140-sid-0-pid-1.html
-        hostname: 'z.qukansha.com',
+        hostname: url.hostname,
         port: 80, 
-        path: '/?s=vod-play-id-112440-sid-0-pid-1.html',
+        path: url.path,
         headers: {
             // 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             // 'Accept-Encoding':'gzip, deflate, sdch',
@@ -64,14 +64,15 @@ function parsingVideo(url, callback) {
     const req = http.get(options, res => {
         let chunks = '';
         let size = 0;
-        console.log(res.statusCode)
+        // console.log(res.statusCode)
         res.on("data", chunk => {
             chunks += chunk
             // chunks.push(chunk);
             // size += chunk.length;
         })
         res.on("end", () => {
-            console.log(chunks)
+            // console.log(chunks)
+            callback(null, cheerio.load(chunks));
             // const data = Buffer.concat(chunks, size);
             // zlib.gunzip(data, function (err, decoded) {
             //     if (err) {

@@ -10,7 +10,7 @@
                 :visible-arrow="false">
                 <el-tabs class="tab" type="card" ref="tabs">
                     <el-tab-pane :label="item.title" v-for="(item, index) in info.juji" :key="index">
-                        <router-link to="" v-for="i in item.data" :key="i">{{i.name}}</router-link>
+                        <router-link :to="{path: 'videoplayer', query: {url: i.link}}" v-for="i in item.data" :key="i">{{i.name}}</router-link>
                     </el-tab-pane>
                 </el-tabs>
             </el-popover>

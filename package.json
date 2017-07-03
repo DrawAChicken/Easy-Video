@@ -1,14 +1,14 @@
 {
-  "name": "easy",
+  "name": "video",
   "version": "0.0.1",
-  "description": "Simple build tools by Electron",
+  "description": "Simple video by Electron",
   "main": "main.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules && cp ./resource/index.html ./dist/ && cp ./resource/remote.js ./dist/",
     "start": "cross-env NODE_ENV=development electron .",
     "build:electron": "electron-packager ./ EASY --platform=darwin --arch=x64 --ignore=node_modules --electronVersion=1.4.13 --overwrite --icon=./logo/cli.icns",
-    "appdmg": "appdmg appdmg.json ~/Desktop/EASY.dmg"
+    "appdmg": "appdmg appdmg.json ~/Desktop/Video.dmg"
   },
   "repository": {
     "type": "git",

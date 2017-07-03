@@ -1,23 +1,23 @@
 <template>
     <ul class="content-area">
         <li class="type">
-            <dl v-for="item in info.typeList" class="type-list">
+            <dl v-for="item in info.typeList" class="type-list" :key="item">
                 <dt class="title">{{item.title}}</dt>
-                <dd class="content" v-for="typeData in item.list">
+                <dd class="content" v-for="typeData in item.list" :key="typeData">
                     <router-link :to="{path: 'detailsList', query: {url: typeData.link}}">
                         {{typeData.name}}
                     </router-link>
                 </dd>
             </dl>
         </li>
-        <li v-for="item in info.mainList">
+        <li v-for="item in info.mainList" :key="item">
             <div class="title">
                 <h3>
                     <span>{{item.title}}</span>
                     <router-link :to="{path: 'detailsList', query: {url: item.link}}" tag="em">查看更多<i class="el-icon-arrow-right"></i></router-link>
                 </h3>
             </div>
-            <div class="cell" v-for="itemData in item.imgList">
+            <div class="cell" v-for="itemData in item.imgList" :key="itemData">
                 <router-link tag="div" :to="{path: 'details', query: {url: itemData.link}}" class="img">
                     <img v-lazy="itemData.pic" :alt="itemData.name">
                     <p class="title">{{itemData.title}}</p>
@@ -62,6 +62,7 @@ export default {
                 el: this.$el
             }, data => {
                 this.info = data;
+                console.log(this.info)
             })
         }
     },

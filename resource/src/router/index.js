@@ -5,6 +5,7 @@ import Details from '../views/homepage/Details.vue';
 import Home from '../views/homepage/Home.vue';
 import ClassList from '../views/homepage/ClassList.vue';
 import DetailsList from '../views/homepage/DetailsList.vue';
+import VideoPlayer from '../views/homepage/VideoPlayer.vue';
 
 Vue.use(Router);
 
@@ -46,6 +47,10 @@ export default new Router({
                 {
                     path: '/:id/detailsList',
                     component: DetailsList
+                },
+                {
+                    path: '/:id/videoplayer',
+                    component: VideoPlayer
                 }
             ]
         }

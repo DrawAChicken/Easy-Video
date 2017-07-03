@@ -4,7 +4,7 @@ const template = [{
     label: app.getName(),
     submenu: [
         {
-            label: '关于EASY',
+            label: '关于Video',
             click() {
                 
             }
@@ -21,7 +21,7 @@ const template = [{
         },
         {
             role: 'quit',
-            label: '退出 EASY'
+            label: '退出 Video'
         }
     ]
 }];
