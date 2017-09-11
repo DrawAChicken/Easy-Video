@@ -20,7 +20,6 @@ export default {
         const foo = document.getElementById('foo');
         foo.addEventListener('did-get-response-details', function (params) {
             console.log(params)
-            
         })
     }
 };

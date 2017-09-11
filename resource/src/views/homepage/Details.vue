@@ -10,7 +10,7 @@
                 :visible-arrow="false">
                 <el-tabs class="tab" type="card" ref="tabs">
                     <el-tab-pane :label="item.title" v-for="(item, index) in info.juji" :key="index">
-                        <router-link :to="{path: 'videoplayer', query: {url: i.link}}" v-for="i in item.data" :key="i">{{i.name}}</router-link>
+                        <router-link :to="{path: 'videoplayer', query: {url: i.link}}" v-for="(i, index) in item.data" :key="index">{{i.name}}</router-link>
                     </el-tab-pane>
                 </el-tabs>
             </el-popover>
@@ -26,15 +26,15 @@
                 </p>
                 <p class="actors">
                     <span class="left">导演 :</span>
-                    <span v-for="item in info.director" class="actor">{{item}}</span>
+                    <span v-for="(item, index) in info.director" :key="index" class="actor">{{item}}</span>
                 </p>
                 <p class="actors">
                     <span class="left">类型 :</span>
-                    <span v-for="item in info.type" class="actor">{{item}}</span>
+                    <span v-for="(item, index) in info.type" :key="index" class="actor">{{item}}</span>
                 </p>
                 <p class="actors">
                     <span class="left">演员 :</span>
-                    <span v-for="(item, index) in info.actors" class="actor">{{item}}<i v-if="index != info.actors.length-1">、</i></span>
+                    <span v-for="(item, index) in info.actors" :key="index" class="actor">{{item}}<i v-if="index != info.actors.length-1">、</i></span>
                 </p>
                 <p class="actors">
                     <span class="left">地区 :</span>
@@ -67,7 +67,7 @@ export default {
         }
     },
     mounted() {
-        this.$remoteApi.details(`http://z.qukansha.com${this.$route.query.url}`, {
+        this.$remoteApi.details(`http://yinghua.yiyire.cn${this.$route.query.url}`, {
             el: this.$el
         }, data => {
             const status = data.status.split('：');
@@ -136,7 +136,7 @@ export default {
                     opacity: 0;
                     position: absolute;
                     transition: all .5s;
-                    background: url('../../assets/play.png');      
+                    background: url('../../assets/play.png');
                     background-size: 100%;
                 }
                 &:hover .play-icon{

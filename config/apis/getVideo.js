@@ -3,7 +3,7 @@ const URL = require('url');
 
 module.exports = function (path, cb) {
     const URLOptions = {
-        hostname: 'z.qukansha.com',
+        hostname: 'yinghua.yiyire.cn',
         path
     }
     filterData(URLOptions, (err, $) => {
@@ -12,27 +12,31 @@ module.exports = function (path, cb) {
             return
         }
         const iframeUrl = $('.playerbox #media').attr('src');
-        const {hostname, path} = URL.parse(iframeUrl);
-        if (hostname === 'jiexi.fuquanjie.cn') {
-            cb(null, {
-                type: '1',
-                url: iframeUrl
-            })
-            return
-        }
-        filterData({
-            hostname,
-            path
-        }, (err, $) => {
-            if (err) {
-                cb(err, null);
-                return
-            }
-            cb(null, {
-                type: '2',
-                url: $('[name=mp4url]').attr('value')
-            })
+        cb(null, {
+            type: '1',
+            url: iframeUrl
         })
+        // const {hostname, path} = URL.parse(iframeUrl);
+        // if (hostname === 'jiexi.fuquanjie.cn') {
+        //     cb(null, {
+        //         type: '1',
+        //         url: iframeUrl
+        //     })
+        //     return
+        // }
+        // filterData({
+        //     hostname,
+        //     path
+        // }, (err, $) => {
+        //     if (err) {
+        //         cb(err, null);
+        //         return
+        //     }
+        //     cb(null, {
+        //         type: '2',
+        //         url: $('[name=mp4url]').attr('value')
+        //     })
+        // })
     })
 }
 // )('?s=vod-play-id-112440-sid-0-pid-1.html', (err, data) => {

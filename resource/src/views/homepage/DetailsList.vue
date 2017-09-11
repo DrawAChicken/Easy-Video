@@ -1,8 +1,8 @@
 <template>
     <ul class="content-area">
         <li class="type">
-            <dl v-for="item in info.typeList" class="type-list">
-                <dd class="content" v-for="typeData in item" :class="typeData.className">
+            <dl v-for="(item, index) in info.typeList" class="type-list" :key="index">
+                <dd class="content" v-for="(typeData, index) in item" :key="index" :class="typeData.className">
                     <router-link :to="{path: 'detailsList', query: {url: typeData.link}}">
                         {{typeData.name}}
                     </router-link>
@@ -12,10 +12,10 @@
         <li>
             <div class="title">
                 <h3>
-                    
+
                 </h3>
             </div>
-            <div class="cell" v-for="itemData in info.list">
+            <div class="cell" v-for="(itemData, index) in info.list" :key="index">
                 <router-link tag="div" :to="{path: 'details', query: {url: itemData.link}}" class="img">
                     <img v-lazy="itemData.pic" :alt="itemData.name">
                     <p class="title">{{itemData.title}}</p>
@@ -62,7 +62,7 @@ export default {
             this.getInfo(`${url}-p-${val}.html`);
         },
         getInfo(url = this.$route.query.url) {
-            this.$remoteApi.detailsList(`http://z.qukansha.com${url}`, {
+            this.$remoteApi.detailsList(`http://yinghua.yiyire.cn${url}`, {
                 el: this.$el
             }, data => {
                 this.info = data;
@@ -123,7 +123,7 @@ export default {
                 .cur{
                     border-bottom: 1px solid #444;
                     a{
-                        color: #444;                        
+                        color: #444;
                     }
                 }
             }

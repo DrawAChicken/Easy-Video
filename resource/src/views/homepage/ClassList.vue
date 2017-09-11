@@ -1,23 +1,23 @@
 <template>
     <ul class="content-area">
         <li class="type">
-            <dl v-for="item in info.typeList" class="type-list" :key="item">
+            <dl v-for="(item, index) in info.typeList" class="type-list" :key="index">
                 <dt class="title">{{item.title}}</dt>
-                <dd class="content" v-for="typeData in item.list" :key="typeData">
+                <dd class="content" v-for="(typeData, index) in item.list" :key="index">
                     <router-link :to="{path: 'detailsList', query: {url: typeData.link}}">
                         {{typeData.name}}
                     </router-link>
                 </dd>
             </dl>
         </li>
-        <li v-for="item in info.mainList" :key="item">
+        <li v-for="(item, index) in info.mainList" :key="index">
             <div class="title">
                 <h3>
                     <span>{{item.title}}</span>
                     <router-link :to="{path: 'detailsList', query: {url: item.link}}" tag="em">查看更多<i class="el-icon-arrow-right"></i></router-link>
                 </h3>
             </div>
-            <div class="cell" v-for="itemData in item.imgList" :key="itemData">
+            <div class="cell" v-for="(itemData, index) in item.imgList" :key="index">
                 <router-link tag="div" :to="{path: 'details', query: {url: itemData.link}}" class="img">
                     <img v-lazy="itemData.pic" :alt="itemData.name">
                     <p class="title">{{itemData.title}}</p>
@@ -28,7 +28,7 @@
                 </router-link>
             </div>
             <div class="cell-text">
-                <div v-for="(textData, index) in item.textList" class="cell">
+                <div v-for="(textData, index) in item.textList" class="cell" :key="index">
                     <router-link :to="{path: 'details', query: {url: textData.link}}" tag="div">
                         <span :class="{highlight: index <3}">{{index + 1}}. </span>
                         <p>
@@ -58,11 +58,10 @@ export default {
     },
     methods: {
         getInfo() {
-            this.$remoteApi.classList(`http://z.qukansha.com${this.$route.query.url}`, {
+            this.$remoteApi.classList(`http://yinghua.yiyire.cn${this.$route.query.url}`, {
                 el: this.$el
             }, data => {
                 this.info = data;
-                console.log(this.info)
             })
         }
     },
