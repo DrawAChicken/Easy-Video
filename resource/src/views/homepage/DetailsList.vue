@@ -25,14 +25,7 @@
                     </div>
                 </router-link>
             </div>
-            <el-pagination
-                v-if="this.info"
-                @current-change="handleCurrentChange"
-                layout="prev, pager, next"
-                :total="info.pagination.totalPages"
-                :current-page="info.pagination.currentPage"
-                class="pagination"
-                >
+            <el-pagination v-if="this.info" @current-change="handleCurrentChange" layout="prev, pager, next" :total="info.pagination.totalPages" :current-page="info.pagination.currentPage" class="pagination">
             </el-pagination>
         </li>
     </ul>
@@ -44,11 +37,6 @@ export default {
         return {
             info: ''
         };
-    },
-    watch: {
-        $route() {
-            this.getInfo();
-        }
     },
     methods: {
         handleCurrentChange(val) {
@@ -62,22 +50,21 @@ export default {
             this.getInfo(`${url}-p-${val}.html`);
         },
         getInfo(url = this.$route.query.url) {
-            this.$remoteApi.detailsList(`http://yinghua.yiyire.cn${url}`, {
-                el: this.$el
-            }, data => {
-                this.info = data;
-                const [totalNumber, totalPages] = this.info.pagination.totalNumber.split('/');
-                this.info.pagination = {
-                    currentPage: +totalNumber.charAt(totalNumber.length - 1),
-                    totalNumber: totalNumber.substring(0, totalNumber.length - 2),
-                    totalPages: +totalPages
-                };
-                this.info.typeList = this.info.typeList.filter( item => {
-                    if (item.length) {
-                        return item
-                    }
-                });
-            })
+            this.$remoteApi.detailsList(`http://yinghua.yiyire.cn${url}`, this)
+                .then(data => {
+                    this.info = data;
+                    const [totalNumber, totalPages] = this.info.pagination.totalNumber.split('/');
+                    this.info.pagination = {
+                        currentPage: +totalNumber.charAt(totalNumber.length - 1),
+                        totalNumber: totalNumber.substring(0, totalNumber.length - 2),
+                        totalPages: +totalPages
+                    };
+                    this.info.typeList = this.info.typeList.filter(item => {
+                        if (item.length) {
+                            return item
+                        }
+                    });
+                })
         }
     },
     mounted() {
@@ -87,110 +74,110 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '../../assets/css/list.scss';
-    .content-area{
-        .type{
-            font-size: 12px;
-            .type-list{
-                width: 100%;
-                overflow: hidden;
-                line-height: 20px;
-                padding: 5px 10px;
-                .title{
-                    float: left;
-                    width: auto;
-                    padding: 0;
-                    margin: 0;
-                    padding: 0 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 10px;
-                    font-size: 13px;
-                    margin-right: 5px;
-                    color: #4a4a4a;
+@import '../../assets/css/list.scss';
+.content-area {
+    .type {
+        font-size: 12px;
+        .type-list {
+            width: 100%;
+            overflow: hidden;
+            line-height: 20px;
+            padding: 5px 10px;
+            .title {
+                float: left;
+                width: auto;
+                padding: 0;
+                margin: 0;
+                padding: 0 15px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                font-size: 13px;
+                margin-right: 5px;
+                color: #4a4a4a;
+            }
+            .content {
+                float: left;
+                padding: 0 5px;
+                height: 20px;
+                a {
+                    text-decoration: none;
+                    color: #999;
                 }
-                .content{
-                    float: left;
-                    padding: 0 5px;
-                    height: 20px;
-                    a{
-                        text-decoration: none;
-                        color: #999;
-                    }
-                    &:nth-child(1){
-                        height: 21px;
-                    }
+                &:nth-child(1) {
+                    height: 21px;
                 }
-                .cur{
-                    border-bottom: 1px solid #444;
-                    a{
-                        color: #444;
+            }
+            .cur {
+                border-bottom: 1px solid #444;
+                a {
+                    color: #444;
+                }
+            }
+        }
+    }
+    li {
+        .cell {
+            width: 33.3333%;
+            height: 34vw;
+            padding: 0 2.3%;
+            .img {
+                .video-info {
+                    p {
+                        float: left;
+                        line-height: 30px;
+                    }
+                    .short {
+                        float: right;
                     }
                 }
             }
         }
-        li{
-            .cell{
-                width: 33.3333%;
-                height: 34vw;
-                padding: 0 2.3%;
-                .img{
-                    .video-info{
-                        p{
-                            float: left;
-                            line-height: 30px;
-                        }
-                        .short{
-                            float: right;
+        .pagination {
+            width: 100%;
+            height: 30px;
+            float: left;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .cell-text {
+            overflow: hidden;
+            float: left;
+            .cell {
+                height: auto;
+                div {
+                    background: #fafafa;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    line-height: 20px;
+                    position: relative;
+                    padding: 3px 16px;
+                    span {
+                        width: 16px;
+                        text-align: center;
+                        text-indent: 3px;
+                        position: absolute;
+                        left: 0;
+                        top: 3px;
+                    }
+                    .highlight {
+                        color: #ff7f0a;
+                    }
+                    p {
+                        width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        cursor: pointer;
+                        &:nth-child(3) {
+                            text-align: right;
                         }
                     }
-                }
-            }
-            .pagination{
-                width: 100%;
-                height: 30px;
-                float: left;
-                margin-top: 10px;
-                text-align: center;
-            }
-            .cell-text{
-                overflow: hidden;
-                float: left;
-                .cell{
-                    height: auto;
-                    div{
-                        background: #fafafa;
-                        border-radius: 4px;
-                        font-size: 12px;
-                        line-height: 20px;
-                        position: relative;
-                        padding: 3px 16px;
-                        span{
-                            width: 16px;
-                            text-align: center;
-                            text-indent: 3px;
-                            position: absolute;
-                            left: 0;
-                            top: 3px;
-                        }
-                        .highlight{
-                            color: #ff7f0a;
-                        }
-                        p{
-                            width: 100%;
-                            overflow: hidden;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
-                            cursor: pointer;
-                            &:nth-child(3){
-                                text-align: right;
-                            }
-                        }
-                        &:hover{
-                            background: #f0f0f0;
-                        }
+                    &:hover {
+                        background: #f0f0f0;
                     }
                 }
             }
         }
     }
+}
 </style>

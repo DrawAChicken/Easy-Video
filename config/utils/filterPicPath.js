@@ -1,4 +1,5 @@
 module.exports = (path) => {
+    if (!path) return;
     if (path.startsWith('/Uploads/')) {
         return path.replace('/Uploads/', '');
     }

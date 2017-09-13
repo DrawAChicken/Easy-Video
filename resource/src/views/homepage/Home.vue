@@ -39,25 +39,27 @@ export default {
                     url: val
                 }
             });
+        },
+        getInfo() {
+            this.$remoteApi.homePage('http://yinghua.yiyire.cn/', this)
+                .then(data => {
+                    this.info = [
+                        {
+                            title: '热门影片',
+                            link: '/dy/classList?url=/?s=vod-show-id-1.html',
+                            data: data.movieInfo
+                        },
+                        {
+                            title: '热播电视',
+                            link: '/dsj/classList?url=/?s=vod-show-id-2.html',
+                            data: data.tvSeriesInfo
+                        }
+                    ]
+                })
         }
     },
     mounted() {
-        this.$remoteApi.homePage('http://yinghua.yiyire.cn/', {
-            el: this.$el
-        }, data => {
-            this.info = [
-                {
-                    title: '热门影片',
-                    link: '/dy/classList?url=/?s=vod-show-id-1.html',
-                    data: data.movieInfo
-                },
-                {
-                    title: '热播电视',
-                    link: '/dsj/classList?url=/?s=vod-show-id-2.html',
-                    data: data.tvSeriesInfo
-                }
-            ]
-        })
+        this.getInfo();
     }
 };
 </script>

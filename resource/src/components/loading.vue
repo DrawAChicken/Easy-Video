@@ -1,7 +1,7 @@
 <template>
     <div class="loading">
-        <div class="spinner-err" v-if="apiError">
-            <img src="../../assets/error.png" alt="">
+        <div class="spinner-err" v-if="$store.state.loading.statu === 'err'">
+            <img src="../assets/error.png" alt="">
             <p class="button">
                 <em>数据加载失败</em>
                 <em>{{errMsg || "网络或服务器延迟，请稍后再试"}}</em>
