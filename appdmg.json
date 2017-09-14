@@ -1,9 +1,9 @@
 {
-  "title": "高鸡儿",
+  "title": "Easy Video",
   "icon": "logo/cli.icns",
   "background-color": "#eee",
   "contents": [
     { "x": 448, "y": 200, "type": "link", "path": "/Applications" },
-    { "x": 192, "y": 200, "type": "file", "path": "Cli-darwin-x64/Cli.app" }
+    { "x": 192, "y": 200, "type": "file", "path": "EASY-darwin-x64/EASY.app" }
   ]
 }
