@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<ul class="left-side-menu">
-			<router-link tag="li" to="/home">首页</router-link>
+			<router-link tag="li" to="/home?a=1">首页</router-link>
 			<router-link tag="li" to="/dy">电影</router-link>
 			<router-link tag="li" to="/dsj">电视剧</router-link>
 			<router-link tag="li" to="/dm">动漫</router-link>
@@ -12,22 +12,14 @@
 				<i class="el-icon-upload"></i>
 			</li>
 		</ul>
-		<router-view class="main-content" ref="abb"></router-view>
-		<loading v-if="$store.state.loading.statu === 'start' || $store.state.loading.statu === 'err'"></loading>
+		<router-view class="main-content" ref="container"></router-view>
 	</div>
 </template>
 
 <script>
-import Loading from '../../components/loading.vue'
 export default {
 	data() {
 		return {}
-	},
-	watch: {
-		$route() {
-			this.$refs.abb.getInfo()
-			console.log();
-		}
 	},
 	methods: {
 		goDetails(val) {
@@ -38,9 +30,6 @@ export default {
 				}
 			});
 		}
-	},
-	components: {
-		Loading
 	}
 };
 </script>
@@ -80,6 +69,7 @@ export default {
 }
 
 .main-content {
-	position: relative;
+	height: 100%;
+	overflow: auto;
 }
 </style>

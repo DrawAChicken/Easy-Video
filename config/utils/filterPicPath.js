@@ -4,7 +4,7 @@ module.exports = (path) => {
         return path.replace('/Uploads/', '');
     }
     if (path.startsWith('/npimg.php?pic=')) {
-        return 'http://z.qukansha.com'+path;
+        return 'http://yinghua.yiyire.cn'+path;
     }
     return path;
 }

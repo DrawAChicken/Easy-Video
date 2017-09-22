@@ -6,6 +6,6 @@ rule_custom
 mock_custom
 rules.json
 mock-project.json
+package-lock.json
 npm-debug.log
-EASY-darwin-x64
-Cli-darwin-x64
+Video-darwin-x64

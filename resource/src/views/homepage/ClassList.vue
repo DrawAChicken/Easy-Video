@@ -53,9 +53,14 @@ export default {
             info: ''
         };
     },
+    watch: {
+		$route() {
+			this.getInfo();
+		}
+	},
     methods: {
         getInfo() {
-            this.$remoteApi.classList(`http://yinghua.yiyire.cn${this.$route.query.url}`, this)
+            this.$remoteApi.classList(`http://yinghua.yiyire.cn${this.$route.query.url}`)
                 .then(data => {
                     this.info = data;
                 })

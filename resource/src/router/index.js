@@ -14,7 +14,6 @@ export default new Router({
         {
             path: '/',
             component: Index,
-            redirect: '/home?a=1',
             children: [
                 {
                     path: '/home',

@@ -38,6 +38,11 @@ export default {
             info: ''
         };
     },
+    watch: {
+		$route() {
+			this.getInfo();
+		}
+	},
     methods: {
         handleCurrentChange(val) {
             let url = this.$route.query.url;
@@ -50,7 +55,7 @@ export default {
             this.getInfo(`${url}-p-${val}.html`);
         },
         getInfo(url = this.$route.query.url) {
-            this.$remoteApi.detailsList(`http://yinghua.yiyire.cn${url}`, this)
+            this.$remoteApi.detailsList(`http://yinghua.yiyire.cn${url}`)
                 .then(data => {
                     this.info = data;
                     const [totalNumber, totalPages] = this.info.pagination.totalNumber.split('/');

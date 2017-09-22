@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules && cp ./resource/index.html ./dist/ && cp ./resource/remote.js ./dist/",
     "start": "cross-env NODE_ENV=development electron .",
-    "build:electron": "electron-packager ./ EASY --platform=darwin --arch=x64 --ignore=node_modules --electronVersion=1.4.13 --overwrite --icon=./logo/cli.icns",
+    "build:electron": "electron-packager ./ Video --platform=darwin --arch=x64 --ignore=\"(resource|logo|package-lock.json|.gitignore|.babelrc|appdmg.json|yarn.lock|README.md|webpack.config*|node_modules)\" --electronVersion=1.4.13 --overwrite --icon=./logo/cli.icns",
     "appdmg": "appdmg appdmg.json ~/Desktop/Video.dmg"
   },
   "repository": {
@@ -16,9 +16,9 @@
   },
   "keywords": [
     "Electron",
-    "easy",
-    "Electron-cli",
-    "electron-vue",
+    "Video",
+    "Electron-Video",
+    "electron-vue-Video",
     "vue-electron"
   ],
   "author": "",

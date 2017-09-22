@@ -57,14 +57,20 @@ export default {
             info: ''
         };
     },
+    watch: {
+		$route() {
+			this.getInfo();
+		}
+	},
     methods: {
         setErrorImg(e) {
             e.target.src = require('../../assets/erroPic.png');
             e.target.style = 'border: 1px solid #ccc';
         },
         getInfo() {
-            this.$remoteApi.details(`http://yinghua.yiyire.cn${this.$route.query.url}`, this)
+            this.$remoteApi.details(`http://yinghua.yiyire.cn${this.$route.query.url}`)
                 .then(data => {
+                    console.log(data);
                     const status = data.status.split('：');
                     if (status[0] === '清晰') {
                         data.status = '完结'

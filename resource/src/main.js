@@ -1,5 +1,5 @@
-import Vue from 'vue';
 import VueLazyload from 'vue-lazyload';
+import Vue from './utils/api';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -15,29 +15,9 @@ Vue.use(VueLazyload, {
 	error: erro,
 	loading: pic,
 	attempt: 1
-})
-Vue.use(ElementUI);
-Vue.prototype.$remote = global.remote || {};
-Vue.prototype.$ipc = global.ipcRenderer || {};
-Vue.prototype.$remoteApi = {};
+});
 
-Object.keys(global.remoteApi).reduce((pre, cur) => {
-	pre[cur] = function (url, _this) {
-		return new Promise((resolve, reject) => {
-			_this.$store.commit('setLoadingStatu', 'start')
-			global.remoteApi[cur](url, (err, data) => {
-				if (err) {
-					console.log(err);
-					_this.$store.commit('setLoadingStatu', 'err')
-					return
-				}
-				_this.$store.commit('setLoadingStatu', 'stop')
-				resolve(data);
-			})
-		})
-	}
-	return pre
-}, Vue.prototype.$remoteApi)
+Vue.use(ElementUI);
 
 new Vue({
 	el: '#app',

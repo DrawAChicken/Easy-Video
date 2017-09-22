@@ -1,6 +1,10 @@
 <template>
     <div>
-        <webview id="foo" :src="info.url" plugins useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36">
+        <webview
+            id="foo"
+            :src="info.url"
+            plugins
+            useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36" httpreferrer="http://yinghua.yiyire.cn/?s=vod-play-id-115143-sid-0-pid-1.html">
         </webview>
     </div>
 </template>
@@ -12,9 +16,14 @@ export default {
             info: ''
         };
     },
+    watch: {
+		$route() {
+			this.getInfo();
+		}
+	},
     methods: {
         getInfo() {
-            this.$remoteApi.getVideo(this.$route.query.url, this)
+            this.$remoteApi.getVideo(this.$route.query.url)
                 .then(data => {
                     this.info = data;
                 })

@@ -1,9 +1,9 @@
 {
   "title": "Easy Video",
-  "icon": "logo/cli.icns",
-  "background-color": "#eee",
+  "icon": "logo/dmg.icns",
+  "background": "logo/dmgbg.png",
   "contents": [
     { "x": 448, "y": 200, "type": "link", "path": "/Applications" },
-    { "x": 192, "y": 200, "type": "file", "path": "EASY-darwin-x64/EASY.app" }
+    { "x": 192, "y": 200, "type": "file", "path": "Video-darwin-x64/Video.app" }
   ]
 }

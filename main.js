@@ -1,7 +1,9 @@
 const { BrowserWindow, app, ipcMain, Menu } = require('electron');
 const menuTemplate = require('./menu');
+const path = require('path');
 
-app.commandLine.appendSwitch('ppapi-flash-path', app.getPath('pepperFlashSystemPlugin'));
+let flashPath = './config/flash/PepperFlashPlayer.plugin';
+app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, flashPath));
 // 主窗口
 let mainWindow = null;
 // 主窗口参数
@@ -15,7 +17,7 @@ let mainWindowParams = {
     // resizable: false,
     backgroundColor: '#fff',
     'web-preferences': {
-        'plugins': true
+        plugins: true
     },
     icon: __dirname + '/logo/logo.png',
     titleBarStyle: 'hidden',
@@ -26,7 +28,7 @@ function createWindow() {
     mainWindow = new BrowserWindow(mainWindowParams);
     if (process.env.NODE_ENV === 'development') {
         console.log('开发环境');
-        mainWindow.loadURL('http://localhost:8080/resource');
+        mainWindow.loadURL('http://localhost:8080/resource/#/home?a=1');
         mainWindow.webContents.openDevTools();
     }
     else {

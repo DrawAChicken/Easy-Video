@@ -5,7 +5,7 @@ module.exports = function (url, cb) {
     filterData(url, (err, $) => {
         if (err) {
             cb(err, null);
-            return
+            return;
         }
         const info = $('#resize_vod');
         const pic = info.find('.vod-l img').attr('data-original');
@@ -62,10 +62,3 @@ module.exports = function (url, cb) {
         })
     })
 }
-
-// const fs = require('fs');
-// module.exports = function (url, cb) {
-//     fs.readFile(__dirname+'/json/apisinfo.json','utf8', function(err, data) {
-//         cb(JSON.parse(data))
-//     });
-// }
