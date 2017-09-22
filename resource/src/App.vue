@@ -1,6 +1,6 @@
 <template>
-	<div id="app">
-		<div id="title">
+	<div id="app" :class="{'html-full-screen': HTMLFullScreen}">
+		<div id="title" :class="[{'full-screen': fullscreen}, {'html-full-screen': HTMLFullScreen}]">
 			<div class="history">
 				<el-button type="text" icon="caret-left" @click="history(-1)"></el-button>
 				<el-button type="text" icon="caret-right" @click="history(1)"></el-button>
@@ -18,7 +18,9 @@
 export default {
 	data() {
 		return {
-			search: ''
+			search: '',
+			fullscreen: false,
+			HTMLFullScreen: false
 		}
 	},
 	methods: {
@@ -27,12 +29,21 @@ export default {
 		},
 		searchClick() {
 			console.log(11);
-		},
-		goHomePage() {
-			this.$router.push({
-				path: '/'
-			});
 		}
+	},
+	mounted() {
+		this.$ipc.on('enter-full-screen', () => {
+			this.fullscreen = true;
+		})
+		this.$ipc.on('leave-full-screen', () => {
+			this.fullscreen = false;
+		})
+		this.$ipc.on('enter-html-full-screen', () => {
+			this.HTMLFullScreen = true;
+		})
+		this.$ipc.on('leave-html-full-screen', () => {
+			this.HTMLFullScreen = false;
+		})
 	}
 }
 </script>
@@ -54,6 +65,9 @@ li {
 	width: 100%;
 	position: relative;
 	padding-top: 40px;
+	&.html-full-screen {
+		padding-top: 0;
+	}
 	#title {
 		position: absolute;
 		top: 0;
@@ -67,6 +81,13 @@ li {
 		padding-right: 30px;
 		padding-left: 85px;
 		z-index: 99999;
+		transition: all .5s;
+		&.full-screen {
+			padding-left: 10px;
+		}
+		&.html-full-screen {
+			display: none;
+		}
 		.history {
 			height: 40px;
 			line-height: 40px;

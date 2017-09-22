@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<ul class="left-side-menu">
+	<div :class="{'htmlfullscreen': HTMLFullScreen}">
+		<ul :class="[{'htmlfullscreen': HTMLFullScreen}, 'left-side-menu']">
 			<router-link tag="li" to="/home?a=1">首页</router-link>
 			<router-link tag="li" to="/dy">电影</router-link>
 			<router-link tag="li" to="/dsj">电视剧</router-link>
@@ -19,7 +19,9 @@
 <script>
 export default {
 	data() {
-		return {}
+		return {
+			HTMLFullScreen: false
+		}
 	},
 	methods: {
 		goDetails(val) {
@@ -30,6 +32,14 @@ export default {
 				}
 			});
 		}
+	},
+	mounted() {
+		this.$ipc.on('enter-html-full-screen', () => {
+			this.HTMLFullScreen = true;
+		})
+		this.$ipc.on('leave-html-full-screen', () => {
+			this.HTMLFullScreen = false;
+		})
 	}
 };
 </script>
@@ -37,6 +47,9 @@ export default {
 <style scoped lang="scss">
 #main {
 	padding-left: 90px;
+	&.htmlfullscreen {
+		padding: 0;
+	}
 	.left-side-menu {
 		position: absolute;
 		left: 0;
@@ -48,6 +61,9 @@ export default {
 		color: #fff;
 		line-height: 40px;
 		z-index: 999999;
+		&.htmlfullscreen {
+			display: none;
+		}
 		li {
 			padding-left: 20px;
 		}

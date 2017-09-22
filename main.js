@@ -40,6 +40,20 @@ function createWindow() {
     mainWindow.on('closed', () => {
         mainWindow = null;
     })
+
+    mainWindow.on('enter-full-screen', () => {
+        mainWindow.webContents.send('enter-full-screen')
+    })
+    mainWindow.on('leave-full-screen', () => {
+        mainWindow.webContents.send('leave-full-screen')
+    })
+
+    mainWindow.on('enter-html-full-screen', () => {
+        mainWindow.webContents.send('enter-html-full-screen')
+    })
+    mainWindow.on('leave-html-full-screen', () => {
+        mainWindow.webContents.send('leave-html-full-screen')
+    })
 };
 // 创建菜单
 function createMenu() {
