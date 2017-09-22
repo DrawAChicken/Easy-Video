@@ -32,7 +32,7 @@ function createWindow() {
         mainWindow.webContents.openDevTools();
     }
     else {
-        mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
+        mainWindow.loadURL(`file://${__dirname}/dist/index.html#/home?a=1`);
     }
     mainWindow.webContents.on('did-finish-load', () => {
         mainWindow.show();
