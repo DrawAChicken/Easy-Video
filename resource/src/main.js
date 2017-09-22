@@ -8,7 +8,6 @@ import pic from './assets/imageLoad.gif';
 import erro from './assets/erroPic.png';
 import 'element-ui/lib/theme-default/index.css'
 import 'normalize.css';
-import 'animate.css';
 import '../src/assets/css/el.scss';
 
 Vue.use(VueLazyload, {

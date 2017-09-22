@@ -70,7 +70,6 @@ export default {
         getInfo() {
             this.$remoteApi.details(`http://yinghua.yiyire.cn${this.$route.query.url}`)
                 .then(data => {
-                    console.log(data);
                     const status = data.status.split('：');
                     if (status[0] === '清晰') {
                         data.status = '完结'

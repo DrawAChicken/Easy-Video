@@ -12,7 +12,7 @@ module.exports = function (url, cb) {
         $('.channel-m.main .channel-list-l').each(function () {
             const list = $(this).find('ul a').map(function() {
                 return {
-                    name: $(this).text(),                    
+                    name: $(this).text(),
                     link: $(this).attr('href')
                 };
             }).toArray();
@@ -52,31 +52,3 @@ module.exports = function (url, cb) {
         })
     })
 }
-// )('http://z.qukansha.com//?s=vod-show-id-1.html', item => {
-//     console.log(item);
-// })
-
-
-
-// const fs = require('fs');
-// module.exports = function (flg, cb) {
-//     let url = '';
-//     if (flg == 1) {
-//         url = __dirname+'/json/imglist.json';
-//     }
-//     else{
-//         url = __dirname+'/json/textlist.json';
-//     }
-//     fs.readFile(url,'utf8', function(err, data) {
-//         cb(JSON.parse(data))
-//     });
-// }
-
-
-// )('http://z.qukansha.com/?s=vod-show-id-2.html', item => {
-//     console.log(item)
-//     fs.writeFile(__dirname+'/json/textlist.json', JSON.stringify(item), function (err) {
-//         if (err) throw err;
-//         console.log('It\'s saved!');
-//     });
-// })

@@ -48,13 +48,12 @@ export default {
         },
         refresh() {
             let hash = location.hash;
-            console.log(hash);
             if (hash.indexOf('fuckrefresh') < 0) {
-                location.href = `${hash}&fuckrefresh=${Math.random()}`;
+                location.replace(`${hash}&fuckrefresh=${Math.random()}`);
             }
             else {
                 hash = hash.split('&fuckrefresh')[0];
-                location.href = `${hash}&fuckrefresh=${Math.random()}`;
+                location.replace(`${hash}&fuckrefresh=${Math.random()}`);
             }
         }
     }

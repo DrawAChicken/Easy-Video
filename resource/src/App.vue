@@ -25,7 +25,7 @@ export default {
 	},
 	methods: {
 		history(n) {
-			this.$router.go(n)
+			this.$router.go(n);
 		},
 		searchClick() {
 			console.log(11);

@@ -17,6 +17,7 @@ loadingConstructor.prototype.stop = function () {
     }
 };
 loadingConstructor.prototype.err = function () {
+    console.log(1);
     this.apiError = true;
 };
 

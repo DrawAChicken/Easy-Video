@@ -7,7 +7,7 @@
 			<router-link tag="li" to="/dm">动漫</router-link>
 			<router-link tag="li" to="/zy">综艺</router-link>
 			<router-link tag="li" to="/bd/classList?url=/?s=my-show-id-top.html">榜单</router-link>
-			<li class="refresh" @click="goDetails('itemData.link')">
+			<li class="refresh" @click="goDetails()">
 				刷新资源
 				<i class="el-icon-upload"></i>
 			</li>
@@ -24,13 +24,12 @@ export default {
 		}
 	},
 	methods: {
-		goDetails(val) {
-			this.$router.push({
-				path: '/details',
-				query: {
-					url: val
-				}
-			});
+		goDetails() {
+			const query = this.$route.query;
+			query.fuckrefresh = Math.random();
+			const hashQuery = Object.keys(query).map(item => `${item}=${query[item]}`).join('&');
+			console.log(hashQuery);
+			location.replace(`#${this.$route.path}?${hashQuery}`);
 		}
 	},
 	mounted() {
