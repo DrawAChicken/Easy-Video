@@ -8,16 +8,22 @@ Vue.prototype.$remoteApi = {};
 Object.keys(global.remoteApi).reduce((pre, cur) => {
 	pre[cur] = url => {
 		const load = loading();
+		const storage = localStorage.getItem(url);
 		return new Promise((resolve, reject) => {
-			global.remoteApi[cur](url, (err, data) => {
-				if (err) {
-					console.log(err);
-					load.err();
-					return;
-				}
+			if (storage) {
 				load.stop();
-				resolve(data);
-			});
+				resolve(JSON.parse(storage));
+			}
+			global.remoteApi[cur](url)
+				.then(data => {
+					load.stop();
+					localStorage.setItem(url, JSON.stringify(data));
+					resolve(data);
+				}).catch(err => {
+					console.log(err);
+					console.log(url);
+					load.err();
+				})
 		});
 	};
 	return pre;

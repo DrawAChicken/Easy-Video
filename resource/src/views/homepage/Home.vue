@@ -50,7 +50,7 @@ export default {
         },
         getInfo() {
             this.statu = true;
-            this.$remoteApi.homePage('http://yinghua.yiyire.cn/', this)
+            this.$remoteApi.homePage('http://yinghua.yiyire.cn/')
                 .then(data => {
                     this.info = [
                         {

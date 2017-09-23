@@ -1,20 +1,22 @@
-const filterData = require('./common').parsingVideo;
+const filterData = require('./common');
 const URL = require('url');
 
-module.exports = function (path, cb) {
-    const URLOptions = {
-        hostname: 'yinghua.yiyire.cn',
-        path
+function parse($) {
+    const iframeUrl = $('.playerbox #media').attr('src');
+    return {
+        type: '1',
+        url: iframeUrl
     }
-    filterData(URLOptions, (err, $) => {
-        if (err) {
-            cb(err, null);
-            return
-        }
-        const iframeUrl = $('.playerbox #media').attr('src');
-        cb(null, {
-            type: '1',
-            url: iframeUrl
-        })
+}
+module.exports = function (url) {
+    url = `http://yinghua.yiyire.cn${url}`
+    return new Promise((resolve, reject) => {
+        filterData(url)
+            .then($ => {
+                resolve(parse($));
+            })
+            .catch(err => {
+                reject(err);
+            })
     })
 }
