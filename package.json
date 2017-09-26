@@ -5,9 +5,8 @@
   "main": "main.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules && cp ./resource/index.html ./dist/ && cp ./resource/remote.js ./dist/",
     "start": "cross-env NODE_ENV=development electron .",
-    "build:electron": "electron-packager ./ Video --platform=darwin --arch=x64 --ignore=\"(resource|logo|package-lock.json|.gitignore|.babelrc|appdmg.json|yarn.lock|README.md|webpack.config*|node_modules)\" --electronVersion=1.4.13 --overwrite --icon=./logo/cli.icns",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules && cp ./resource/index.html ./dist/ && cp ./resource/remote.js ./dist/ && electron-packager ./ Video --platform=darwin --arch=x64 --ignore=\"(resource|logo|package-lock.json|.gitignore|.babelrc|appdmg.json|yarn.lock|README.md|webpack.config*|node_modules)\" --electronVersion=1.4.13 --overwrite --icon=./logo/cli.icns && cd Video-darwin-x64/Video.app/Contents/Resources/app && npm install --production",
     "appdmg": "appdmg appdmg.json ~/Desktop/Video.dmg"
   },
   "repository": {
@@ -28,15 +27,10 @@
   },
   "homepage": "https://github.com/DrawAChicken/Easy-Electron/blob/master/README.md",
   "dependencies": {
-    "animate.css": "^3.5.2",
-    "cheerio": "^1.0.0-rc.2",
-    "node-sass": "^4.5.3",
-    "vue": "^2.4.2",
-    "vue-lazyload": "^1.1.3",
-    "vue-router": "^2.7.0",
-    "vuex": "^2.4.0"
+    "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
+    "animate.css": "^3.5.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-latest": "^6.0.0",
@@ -52,6 +46,11 @@
     "vue-loader": "^13.0.4",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "node-sass": "^4.5.3",
+    "vue": "^2.4.2",
+    "vue-lazyload": "^1.1.3",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.4.0"
   }
 }

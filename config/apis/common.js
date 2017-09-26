@@ -7,12 +7,15 @@ module.exports = function (url) {
         const req = http.get(url, res => {
             const { statusCode } = res;
             if (statusCode !== 200 && statusCode !== 302) {
+                res.resume();
                 reject(`请求失败。状态码：${statusCode}`);
             }
             res.setTimeout(20000);
             res.on('timeout', () => {
+                res.resume();
                 reject('响应超时')
             }).on("error", err => {
+                res.resume();
                 reject(`响应错误${e.message}`);
             }).on("data", data => {
                 html += data;
